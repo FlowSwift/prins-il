@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+{{ _('Adopt a Pet') }} 
+{% endblock %}
+
+{% block main %}
+
+
+<h1>{{ _('Adopt a Pet') }}</h1>
+
+{% if (pet_types|length) > 0 %}
+  
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>{{ _('Type') }}</th>
+                <th>{{ _('Img') }}</th>
+                <th>{{ _('Adopt') }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- TODO: Loop through the database entries to display them in this table -->
+            {% for pet_type in pet_types %}
+            <tr>
+                <td>{{ pet_type.pet_type }} ({{pet_type.id}})</td>
+                <td><img src="/static/{{ pet_type.imgsrc }}" alt="" /></td>
+                <td>
+                  <form method="post" action="/adopt">
+                    <input name="pet_type" type="hidden" value="{{pet_type.id}}" />
+                    <input type="submit" value="{{ _('Adopt') }}" />
+                </form>
+              </td>
+            </tr>
+            {% endfor %}
+
+
+        </tbody>
+    </table>
+  </form>
+    {% else %}
+      <p>{{ _('No pets') }}</p>
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block title %}
+{{ _('Train') }}
+{% endblock %}
+
+{% block main %}
+<header>
+  <div class="main-options">
+    <h1>{{title_s}}</h1>
+    {% if role == 9 %}
+    <div class="options">
+      <a href="/edit/set/" class="btn-option">
+        <span class="fal fa-cog"></span>
+        <span class="sr-only">{{ _('settings') }}</span>
+      </a>
+    </div>
+    {% endif %}
+  </div>
+</header>
+
+<table class="table-responsive-stack">
+  <thead>
+    <tr>
+      <th class="table-icon">
+        <span class="fal fa-check-circle"></span>
+        <span class="sr-only">{{ _('complete') }}</span>
+      </th>
+      <th>{{ _('Word Set') }}</th>
+      <th>{{ _('Learned') }}</th>
+      <th>{{ _('Options') }}</th>
+      <th><span class="sr-only">{{ _('Icon') }}</span></th>
+   </tr>
+  </thead>
+  <tbody>
+    {% for set in sets %}
+     <tr>
+        <td class="table-icon">
+          <span class="fal fa-circle"></span>
+          <span class="sr-only">incomplete</span>
+        </td>
+        <td><a href="/train/set/?s={{set.id}}"> <strong>{{set.translation}}</strong> ({{set.set_name}})</a></td>
+        <td>0/{{set.totalcount}}</td>
+        <td>
+          <form method="post" action="/quiz/set/">
+            <input name="set_id" type="hidden" value="{{set.id}}" />
+            <input type="submit" value="{{ _('Quiz') }}" />
+          </form>
+        </td>
+        <td>
+          <img src="{{ url_for('static', filename=set.imgsrc) }}" alt="{{set.set_name}}">
+        </td>
+     </tr>
+     {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

@@ -1,0 +1,45 @@
+<header class="header">
+  <div class="container">
+    <div class="menu-container">
+      <div class="menu-logo">
+        <h1><a class="logo" href="/"><img src="{{ url_for('static', filename='logos/distantlife-logo.svg') }}" height="28" width="140"
+              alt="Distant Life" /></a></h1>
+        <button aria-label="Menu" id="menubutton" aria-expanded="false" aria-controls="siteMenu">
+          <span class="fal fa-bars"></span>
+          <span class="sr-only">{{ _('menu') }}</span>
+        </button>
+      </div>
+      <nav id="siteMenu" role="menu" aria-labelledby="menubutton">
+        <ul class="list-unstyled list-inline">
+          {% if session.get("user_id") %}
+          <li><a href="/">{{ _('Dashboard') }}</a></li>
+          <li><a href="/pets">{{ _('My Pets') }}</a></li>
+          <li><a href="/train">{{ _('Train') }}</a></li>
+          {% endif %}
+        </ul>
+
+        <ul class="list-unstyled list-inline">
+          {% if session.get("user_id") %}
+            <li class="menu-user"><a href="/users/{{session['user_id']}}">{{ session['username'] }} 
+              <img alt="" src="https://www.satinflame.com/img/icons/apple-touch-icon.png" width="34" height="34" class="rounded-circle">
+            </a></li>
+            <li class="has-dropdown"><a class="hide-md" href="#" aria-haspopup="true">
+              <span class="fal fa-cog"></span>
+              <span class="sr-only">{{ _('settings') }}</span>
+            </a>
+              <ul class="dropdown" aria-label="submenu">
+                <li><a href="/profile">{{ _('Profile') }}</a></li>
+                <li><a href="/logout">{{ _('Logout') }}</a></li>
+              </ul>
+            </li>
+          {% else %}
+            <li><a href="/signup">{{ _('Sign Up') }}</a></li>
+            <li><a href="/login">{{ _('Login') }}</a></li>
+          {% endif %}
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+
+</header>
