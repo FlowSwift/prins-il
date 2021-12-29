@@ -1,7 +1,7 @@
 
 
 
-{% extends "p_layout.html" %}
+{% extends "layout-1col.html" %}
 
 {% block title %}
 Home
@@ -60,4 +60,16 @@ Home
     <p><a href="/signup" class="btn btn-primary">Get Started</a></p>
   </aside>
 </div>
+
+ {% include 'global/subfeature-about.html' %}
+ {% include 'global/subfeature-grid.html' %}
+
+{% endblock %}
+
+{% block second %}
+{% include 'global/blogs.html' %}
+{% endblock %}
+
+{% block feature %}
+{% include 'global/feature.html' %}
 {% endblock %}

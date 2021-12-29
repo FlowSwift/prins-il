@@ -75,10 +75,10 @@ def index():
         return render_template("index.html")
 
 
-@app.route("/about")
-def about():
-    """About page"""
-    return render_template("about.html")
+@app.route("/advice-info")
+def advice_info():
+    """Advice and Info page"""
+    return render_template("advice-info.html")
 
 
 def errorhandler(e):
