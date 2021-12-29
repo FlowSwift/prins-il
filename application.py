@@ -1,6 +1,6 @@
 import redis
 
-from cs50 import SQL
+import sqlite3
 from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
 from tempfile import mkdtemp
@@ -63,7 +63,8 @@ app.config['SESSION_REDIS'] = redis.from_url('redis://0.0.0.0:6379')
 
 Session(app)
 
-db = SQL("sqlite:///prins.db")
+con = sqlite3.connect("prins.db")
+db = con.cursor()
 
 
 @app.route("/")
@@ -78,6 +79,26 @@ def index():
 @app.route("/advice-info")
 def advice_info():
     """Advice and Info page"""
+    return render_template("advice-info.html")
+
+@app.route("/our-products/cat")
+def cat_products():
+    """Cat products page"""
+    return render_template("advice-info.html")
+
+@app.route("/our-products/dog")
+def dog_products():
+    """Dog products page"""
+    return render_template("advice-info.html")
+
+@app.route("/contact-us")
+def contact_us():
+    """Contact us page"""
+    return render_template("advice-info.html")
+
+@app.route("/discover-prins")
+def discover_prins():
+    """Discover prins info page"""
     return render_template("advice-info.html")
 
 
