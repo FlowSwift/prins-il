@@ -86,10 +86,10 @@ msgstr "Join for free!"
 
 #: templates/index.html:21
 msgid ""
-"Distant Life combines virtual pet experience with interactive\n"
+"Prins - Israel combines virtual pet experience with interactive\n"
 "    language learning and practice, making your learning fun and exciting."
 msgstr ""
-"Distant Life combines virtual pet experience with interactive\n"
+"Prins - Israel combines virtual pet experience with interactive\n"
 "    language learning and practice, making your learning fun and exciting."
 
 #: templates/index.html:32
@@ -259,4 +259,3 @@ msgstr "Logout"
 #: templates/global/header.html:37
 msgid "Login"
 msgstr "Login"
-

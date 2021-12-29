@@ -1,4 +1,4 @@
-# Prins Israel
+# Prins - Israel
 
 ## Development
 
@@ -50,3 +50,8 @@ Usage in templates with `_('Word')` or `gettext('Word')`:
 
 
 Visit http://127.0.0.1:5000/
+
+
+## To do:
+
+- remove dependendency on CS50 library: https://zetcode.com/db/sqlitepythontutorial/

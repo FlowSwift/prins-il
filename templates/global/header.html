@@ -1,45 +1,115 @@
-<header class="header">
-  <div class="container">
-    <div class="menu-container">
-      <div class="menu-logo">
-        <h1><a class="logo" href="/"><img src="{{ url_for('static', filename='logos/distantlife-logo.svg') }}" height="28" width="140"
-              alt="Distant Life" /></a></h1>
-        <button aria-label="Menu" id="menubutton" aria-expanded="false" aria-controls="siteMenu">
-          <span class="fal fa-bars"></span>
-          <span class="sr-only">{{ _('menu') }}</span>
-        </button>
-      </div>
-      <nav id="siteMenu" role="menu" aria-labelledby="menubutton">
-        <ul class="list-unstyled list-inline">
-          {% if session.get("user_id") %}
-          <li><a href="/">{{ _('Dashboard') }}</a></li>
-          <li><a href="/pets">{{ _('My Pets') }}</a></li>
-          <li><a href="/train">{{ _('Train') }}</a></li>
-          {% endif %}
-        </ul>
-
-        <ul class="list-unstyled list-inline">
-          {% if session.get("user_id") %}
-            <li class="menu-user"><a href="/users/{{session['user_id']}}">{{ session['username'] }} 
-              <img alt="" src="https://www.satinflame.com/img/icons/apple-touch-icon.png" width="34" height="34" class="rounded-circle">
-            </a></li>
-            <li class="has-dropdown"><a class="hide-md" href="#" aria-haspopup="true">
-              <span class="fal fa-cog"></span>
-              <span class="sr-only">{{ _('settings') }}</span>
+<div id="skip-link" style="opacity: 1;">
+  <a href="https://www.prinspetfoods.com/#main-content" class="element-invisible element-focusable">Skip to main
+    content</a>
+  <a href="https://www.prinspetfoods.com/#navigation" class="element-invisible element-focusable">Skip to navigation</a>
+</div>
+<div class="region-block header" style="opacity: 1;">
+  <header id="header" class="fixed">
+    <nav>
+      <div class="navigation-spanner">
+        <div class="logobar">
+          <div class="block-center">
+            <a href="https://www.prinspetfoods.com/" title="Home" id="logo" class="active">
+              <img src="./static/assets/images/png/logo.png" alt="Home">
             </a>
-              <ul class="dropdown" aria-label="submenu">
-                <li><a href="/profile">{{ _('Profile') }}</a></li>
-                <li><a href="/logout">{{ _('Logout') }}</a></li>
-              </ul>
-            </li>
-          {% else %}
-            <li><a href="/signup">{{ _('Sign Up') }}</a></li>
-            <li><a href="/login">{{ _('Login') }}</a></li>
-          {% endif %}
-        </ul>
-      </nav>
-    </div>
-  </div>
+          </div>
+        </div>
+
+        <div class="main-menu">
+          <div class="menu-wrapper">
+            <div class="region region-menu">
+              <div id="block-system-main-menu" class="block block-system block-menu">
 
 
-</header>
+                <div class="content">
+                  <ul class="menu">
+                    <li class="first expanded"><a href="https://www.prinspetfoods.com/" class="active">Our products</a>
+                      <ul class="menu">
+                        <li class="first leaf"><a href="https://www.prinspetfoods.com/our-products/cat"
+                            class="menu_icon menu-590">Cat</a></li>
+                        <li class="leaf"><a href="https://www.prinspetfoods.com/our-products/dog"
+                            class="menu_icon menu-592">Dog</a></li>
+                        <li class="last leaf"><a href="https://www.prinspetfoods.com/nutrition-guide"
+                            class="menu_icon menu-510">Nutrition Guide</a></li>
+                      </ul>
+                    </li>
+                    <li class="leaf"><a href="https://www.prinspetfoods.com/advice-info">Advice &amp; Info</a></li>
+                    <li class="expanded collapsed"><a href="https://www.prinspetfoods.com/discover-prins">Discover
+                        Prins</a>
+                      <ul class="menu">
+                        <li class="first leaf collapsed"><a href="https://www.prinspetfoods.com/discover-prins">Who is
+                            Prins?</a></li>
+                        <li class="leaf"><a href="https://www.prinspetfoods.com/prins-experience">Prins Experience</a>
+                        </li>
+                        <li class="leaf"><a href="https://www.prinspetfoods.com/discover-prins/about-prins">About
+                            Prins</a></li>
+                        <li class="last leaf"><a
+                            href="https://www.prinspetfoods.com/discover-prins/about-prins/edupet-education">Edupet</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="last leaf"><a href="https://www.prinspetfoods.com/professionals">Professionals</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div id="block-search-form" class="block block-search">
+
+
+                <div class="content">
+                  <form action="https://www.prinspetfoods.com/" method="post" id="search-block-form"
+                    accept-charset="UTF-8">
+                    <div>
+                      <div class="container-inline">
+                        <h2 class="element-invisible">Search form</h2>
+                        <div class="form-item form-type-textfield form-item-search-block-form">
+                          <label class="element-invisible" for="edit-search-block-form--2">Search </label>
+                          <input title="Enter the terms you wish to search for." placeholder="Enter your keywords"
+                            type="text" id="edit-search-block-form--2" name="search_block_form" value="" size="15"
+                            maxlength="128" class="form-text">
+                        </div>
+                        <div class="form-actions form-wrapper" id="edit-actions"><input type="submit" id="edit-submit"
+                            name="op" value="Search" class="form-submit"></div><input type="hidden" name="form_build_id"
+                          value="form-3M_vpWPl9GxxI7ccuwZstuedPYMlvRpOvIOZ42jIvwM">
+                        <input type="hidden" name="form_id" value="search_block_form">
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div id="block-menu-block-1" class="block block-menu-block">
+
+
+                <div class="content">
+                  <div
+                    class="menu-block-wrapper menu-block-1 menu-name-menu-second-main-menu parent-mlid-0 menu-level-1">
+                    <ul class="menu">
+                      <li class="first last leaf menu-mlid-1389"><a
+                          href="https://www.prinspetfoods.com/ask-our-careteam">Ask our CareTeam</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div id="block-extra-locale-language" class="block block-extra-locale contextual-links-region">
+                <div class="content">
+                  <ul class="language-switcher-locale-url">
+                    <li class="nl first "><a href="https://prinspetfoods.nl/" class="language-link"
+                        xml:lang="nl">Nederlands</a></li>
+                    <li class="en active"><a href="https://prinspetfoods.com/?language=en" class="language-link"
+                        xml:lang="en">English</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="toggle">
+              <span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="loader"></div>
+    </nav>
+
+
+
+  </header>
+</div>

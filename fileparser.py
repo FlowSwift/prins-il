@@ -2,7 +2,8 @@ from cs50 import SQL
 import csv
 import redis
 
-db = SQL("sqlite:///distantlife.db")
+# Maybe could use this for processing?
+db = SQL("sqlite:///prins.db")
 r = redis.StrictRedis(host="127.0.0.1", port=6379, db=0)
 
 
