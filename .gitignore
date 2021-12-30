@@ -140,3 +140,6 @@ cython_debug/
 # Random files
 schema.txt
 dump.rdb
+prins - Copy.db
+prins.db-journal
+.gitignore
