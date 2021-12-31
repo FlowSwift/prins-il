@@ -86,10 +86,6 @@ def cat_products():
     """Cat products page"""
     return render_template("advice-info.html")
 
-@app.route("/our-products/dog")
-def dog_products():
-    """Dog products page"""
-    return render_template("advice-info.html")
 
 @app.route("/contact-us")
 def contact_us():
@@ -100,6 +96,47 @@ def contact_us():
 def discover_prins():
     """Discover prins info page"""
     return render_template("advice-info.html")
+
+
+@app.route('/dog/<productline>')
+def dog_productline(productline):
+  products = [
+    {
+      'productline': productline,
+      'producttitle': 'good yum yums',
+      'subtitle': 'kibbles and bits for the whole family',
+      'imgsrc': 'dog/320/pc-pro-super-active_1.png'
+    },
+
+    {
+      'productline': productline,
+      'producttitle': 'fancier yums',
+      'subtitle': 'kibbles and bits for puppies',
+      'imgsrc': 'dog/320/pc-pro-super-active_1.png'
+    }
+  ]
+  return render_template("category-products.html", products=products, animal='dog')
+
+
+
+@app.route('/our-products/dog')
+def dog_products():
+  """Dog products page"""
+  categories = [
+    {
+      'category': 'good yum yums',
+      'bullets': [
+        'bulleeeeeeeet 1 of fun',
+        'bulleeeeeeeet 2 of fun',
+        'bulleeeeeeeet 3 of fun',
+        'bulleeeeeeeet 4 of fun',
+        '',
+        ''
+      ],
+      'imgsrc': 'dog/320/pc-pro-super-active_1.png'
+    } 
+  ]
+  return render_template("categories.html", categories=categories, animal='dog')
 
 
 def errorhandler(e):

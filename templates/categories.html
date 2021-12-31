@@ -1,0 +1,82 @@
+{% extends "layout-1col.html" %}
+
+{% block title %}
+{{ categories[0]['category'] }}
+{% endblock %}
+
+
+{% block main %}
+
+<h1>Our products
+  Only the best for your dog</h1>
+
+<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere voluptatum voluptas officiis quod, ipsum facilis
+  amet quo reprehenderit obcaecati sapiente impedit dignissimos eos dolor! Exercitationem vitae labore atque maxime
+  sequi!
+  Odio recu
+  {% endblock %}
+
+
+  {% block second %}
+  {% if (categories|length) > 0 %}
+
+
+<div class="page-taxonomy-term">
+  <div id="block-views-productlijn-producten-block" class="block block-views">
+
+
+    <div class="content">
+      <div
+        class="view view-productlijn-overzicht view-id-productlijn_overzicht view-display-id-block view-dom-id-f81512cc01cf43ba62a9e7162015ccff">
+        <div class="view-header">
+          <h1>{{ categories[0]['category'] }} products</h1>
+        </div>
+
+
+
+        <div class="view-content">
+          {% for category in categories %}
+
+
+
+
+          <div class="views-row views-row-{{loop.index}} views-row-odd views-row-first">
+
+            <h3 class="views-field views-field-name"> <span class="field-content"><a
+                  href="https://www.prinspetfoods.com/dog/prins-dietetic-food-your-dog">{{ category.category }}</a></span> </h3>
+            <div class="views-field views-field-field-product-afbeelding">
+              <div class="field-content"><a href="https://www.prinspetfoods.com/dog/prins-dietetic-food-your-dog"><img src="/static/assets/images/products/{{ category.imgsrc }}" alt="" /></a></div>
+            </div>
+            <div class="views-field views-field-nothing"> <span class="field-content">
+                <p></p>
+                {{ category.bullets[0] }}
+                <ul>
+                  {% for bullet in category.bullets %}
+                    {% if bullet %}
+                    <li>{{ bullet }}</li>
+                    {% endif %}
+                  {% endfor %}
+                </ul>
+                <p></p>
+                <a href="https://www.prinspetfoods.com/dog/prins-dietetic-food-your-dog">All products</a>
+              </span> </div>
+          </div>
+
+
+
+
+          {% endfor %}
+
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+  {% else %}
+
+  <p>{{ _('You do not have a product line with that ID') }}</p>
+  {% endif %}
+</div>
+
+{% endblock %}
