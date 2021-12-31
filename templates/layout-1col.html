@@ -2,7 +2,7 @@
 <html class="js" lang="he" dir="rtl">
 
 
-
+  {% set title_s %}{% block title %}{% endblock %}{% endset %}
 {% include 'global/head.html' %}
 
 
@@ -19,11 +19,23 @@
 </header>
 </div>
 
+
   <div class="page-spanner" style="opacity: 1;">
     <div class="page">
+
+      {% if self.hero() | trim %} 
+      <div class="hero field field-name-field-headertekst field-type-text-long field-label-hidden">
+        <div class="field-items"><div class="field-item even">
+          {% block hero %}{% endblock %}
+          
+        </div></div></div>
+         {% endif %}
+      
+
       <div class="region-block main-spanner">
         <section id="main" role="main" class="clearfix block-center">
 
+          
 
           <div class="main-content" id="main-content">
 
@@ -33,6 +45,8 @@
 
 
                 <div class="content">
+                    
+                  
 
                       {% include 'global/alert.html' %}
                       {% block main %}{% endblock %}

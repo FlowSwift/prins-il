@@ -81,6 +81,11 @@ def advice_info():
     """Advice and Info page"""
     return render_template("advice-info.html")
 
+@app.route("/dealer-info")
+def dealer_info():
+    """Dealer Info page"""
+    return render_template("dealer-info.html")
+
 @app.route("/our-products/cat")
 def cat_products():
     """Cat products page"""
@@ -90,12 +95,12 @@ def cat_products():
 @app.route("/contact-us")
 def contact_us():
     """Contact us page"""
-    return render_template("advice-info.html")
+    return render_template("contact-us.html")
 
 @app.route("/discover-prins")
 def discover_prins():
     """Discover prins info page"""
-    return render_template("advice-info.html")
+    return render_template("discover-prins.html")
 
 
 @app.route('/dog/<productline>')
