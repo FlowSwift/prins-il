@@ -28,6 +28,7 @@ if __name__ == "__main__":
     app.run(host='0.0.0.0')
 
 
+
 # @babel.localeselector
 # def get_locale():
 #     """Set localization for text keys"""
@@ -64,7 +65,21 @@ app.config['SESSION_REDIS'] = redis.from_url('redis://0.0.0.0:6379')
 Session(app)
 
 con = sqlite3.connect("prins.db")
+
 db = con.cursor()
+
+food_info_query = db.execute("""SELECT * FROM food JOIN categories ON food.category_id = categories.category_id""").fetchall()
+categories_info_query = db.execute("""SELECT * FROM categories""").fetchall()
+categories_info = []
+for category in categories_info_query:
+    bullets_query = db.execute("""SELECT bullet_text FROM bullets WHERE category_id = ? """, (category[0],)).fetchall()
+    bullets = [tup[0] for tup in bullets_query]
+    category_info = {"category_id" : category[0], "category_name" : category[1], "category_description" : category[2], "category_info" : category[3], "category_imgsrc" : category[4], "bullets" : bullets}
+    categories_info.append(category_info)
+food_info = []
+for food in food_info_query:
+    food_tmp = {"id" : food[0], "name" : food[1], "category_id" : food[2], "description" : food[3], "kg" : food[4], "itemNum" : food[5], "ean" : food[6], "animal" : food[7], "imgsrc" : food[8], "category_name" : food[10]}
+    food_info.append(food_tmp)
 
 
 @app.route("/")
@@ -129,9 +144,9 @@ def dog_products():
   """Dog products page"""
   categories = [
     {
-      'category': 'good yum yums',
+      'category': 'awtawt',
       'bullets': [
-        'bulleeeeeeeet 1 of fun',
+        'bulleeeeeeeaet 1 of fun',
         'bulleeeeeeeet 2 of fun',
         'bulleeeeeeeet 3 of fun',
         'bulleeeeeeeet 4 of fun',
@@ -139,7 +154,19 @@ def dog_products():
         ''
       ],
       'imgsrc': 'dog/320/pc-pro-super-active_1.png'
-    } 
+    },
+    {
+      'category': 'awtawtaw',
+      'bullets': [
+        'bulleeeeeeeaet 1 of fun',
+        'bulleeeeeeeet 2 of fun',
+        'bulleeeeeeeet 3 of fun',
+        'bulleeeeeeeet 4 of fun',
+        '',
+        ''
+      ],
+      'imgsrc': 'dog/320/pc-pro-super-active_1.png'
+    }
   ]
   return render_template("categories.html", categories=categories, animal='dog')
 
