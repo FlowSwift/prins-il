@@ -18,6 +18,7 @@ category_table = DictReader(StringIO(parts[1]))
 db.execute("""CREATE TABLE "categories" (
 	"category_id"	INTEGER,
 	"category_name"	TEXT UNIQUE,
+	"category_animal" TEXT,
 	"category_description"	TEXT,
     "category_info"	TEXT,
 	"category_imgsrc"	TEXT,
@@ -44,8 +45,8 @@ db.execute("""CREATE TABLE "bullets" (
 category_ids = {}  # grab id of the categories during init
 for line in category_table:  # init categories and bullets
     # init categories table
-    columns = {"category_name" : line["category"], "category_description" : line["description1"], "category_info" : line["description2"], "category_imgsrc" : line["imgsrc"]}
-    category_ids[line["category"]] = db.execute("""INSERT INTO categories (category_name, category_description, category_info, category_imgsrc) VALUES (:category_name, :category_description, :category_info, :category_imgsrc) returning category_id""", columns).fetchone()[0]
+    columns = {"category_name" : line["category"], "category_description" : line["description1"], "category_info" : line["description2"], "category_imgsrc" : line["imgsrc"], "category_animal" : line["animal"]}
+    category_ids[line["category"]] = db.execute("""INSERT INTO categories (category_name, category_animal, category_description, category_info, category_imgsrc) VALUES (:category_name, :category_animal, :category_description, :category_info, :category_imgsrc) returning category_id""", columns).fetchone()[0]
     # init bullets table. `line` already has bullets under keys bullet1-i
     for i in range(6):
         db.execute("""INSERT INTO bullets (category_id, bullet_text) VALUES (?, ?)""", (category_ids[line["category"]], line[f"bullet{i+1}"]))

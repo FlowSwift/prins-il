@@ -72,14 +72,18 @@ food_info_query = db.execute("""SELECT * FROM food JOIN categories ON food.categ
 categories_info_query = db.execute("""SELECT * FROM categories""").fetchall()
 categories_info = []
 for category in categories_info_query:
+    print(category)
     bullets_query = db.execute("""SELECT bullet_text FROM bullets WHERE category_id = ? """, (category[0],)).fetchall()
     bullets = [tup[0] for tup in bullets_query]
-    category_info = {"category_id" : category[0], "category_name" : category[1], "category_description" : category[2], "category_info" : category[3], "category_imgsrc" : category[4], "bullets" : bullets}
+    category_info = {"category_id" : category[0], "category_name" : category[1], "category_animal" : category[2], "category_description" : category[3], "category_info" : category[4], "category_imgsrc" : category[5], "bullets" : bullets}
+    print(category_info)
     categories_info.append(category_info)
 food_info = []
 for food in food_info_query:
     food_tmp = {"id" : food[0], "name" : food[1], "category_id" : food[2], "description" : food[3], "kg" : food[4], "itemNum" : food[5], "ean" : food[6], "animal" : food[7], "imgsrc" : food[8], "category_name" : food[10]}
     food_info.append(food_tmp)
+
+print(categories_info)
 
 
 @app.route("/")
@@ -135,40 +139,18 @@ def dog_productline(productline):
       'imgsrc': 'dog/320/pc-pro-super-active_1.png'
     }
   ]
-  return render_template("category-products.html", products=products, animal='dog')
+  return render_template("category-products.html", products=products, category_animal='dog')
 
 
 
 @app.route('/our-products/dog')
 def dog_products():
   """Dog products page"""
-  categories = [
-    {
-      'category': 'awtawt',
-      'bullets': [
-        'bulleeeeeeeaet 1 of fun',
-        'bulleeeeeeeet 2 of fun',
-        'bulleeeeeeeet 3 of fun',
-        'bulleeeeeeeet 4 of fun',
-        '',
-        ''
-      ],
-      'imgsrc': 'dog/320/pc-pro-super-active_1.png'
-    },
-    {
-      'category': 'awtawtaw',
-      'bullets': [
-        'bulleeeeeeeaet 1 of fun',
-        'bulleeeeeeeet 2 of fun',
-        'bulleeeeeeeet 3 of fun',
-        'bulleeeeeeeet 4 of fun',
-        '',
-        ''
-      ],
-      'imgsrc': 'dog/320/pc-pro-super-active_1.png'
-    }
-  ]
-  return render_template("categories.html", categories=categories, animal='dog')
+  for category in categories_info:
+    if category["category_animal"] == "Dog":
+      print(category)
+      print("-----")
+  return render_template("categories.html", categories=categories_info, category_animal='Dog')
 
 
 def errorhandler(e):
