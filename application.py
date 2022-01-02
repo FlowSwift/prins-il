@@ -72,18 +72,16 @@ food_info_query = db.execute("""SELECT * FROM food JOIN categories ON food.categ
 categories_info_query = db.execute("""SELECT * FROM categories""").fetchall()
 categories_info = []
 for category in categories_info_query:
-    print(category)
     bullets_query = db.execute("""SELECT bullet_text FROM bullets WHERE category_id = ? """, (category[0],)).fetchall()
-    bullets = [tup[0] for tup in bullets_query]
+    bullets = [tup[0] for tup in bullets_query] 
     category_info = {"category_id" : category[0], "category_name" : category[1], "category_animal" : category[2], "category_description" : category[3], "category_info" : category[4], "category_imgsrc" : category[5], "bullets" : bullets}
-    print(category_info)
     categories_info.append(category_info)
 food_info = []
 for food in food_info_query:
     food_tmp = {"id" : food[0], "name" : food[1], "category_id" : food[2], "description" : food[3], "kg" : food[4], "itemNum" : food[5], "ean" : food[6], "animal" : food[7], "imgsrc" : food[8], "category_name" : food[10]}
     food_info.append(food_tmp)
 
-print(categories_info)
+
 
 
 @app.route("/")
@@ -124,33 +122,18 @@ def discover_prins():
 
 @app.route('/dog/<productline>')
 def dog_productline(productline):
-  products = [
-    {
-      'productline': productline,
-      'producttitle': 'good yum yums',
-      'subtitle': 'kibbles and bits for the whole family',
-      'imgsrc': 'dog/320/pc-pro-super-active_1.png'
-    },
-
-    {
-      'productline': productline,
-      'producttitle': 'fancier yums',
-      'subtitle': 'kibbles and bits for puppies',
-      'imgsrc': 'dog/320/pc-pro-super-active_1.png'
-    }
-  ]
-  return render_template("category-products.html", products=products, category_animal='dog')
+    for category in categories_info:
+        if category.lower() == productline.lower():
+            products = category
+            break
+    return render_template("category-products.html", products=products, category_animal='dog')
 
 
 
 @app.route('/our-products/dog')
 def dog_products():
-  """Dog products page"""
-  for category in categories_info:
-    if category["category_animal"] == "Dog":
-      print(category)
-      print("-----")
-  return render_template("categories.html", categories=categories_info, category_animal='Dog')
+    """Dog products page"""
+    return render_template("categories.html", categories=categories_info, category_animal='Dog')
 
 
 def errorhandler(e):
