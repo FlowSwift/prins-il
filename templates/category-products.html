@@ -11,18 +11,18 @@
 
 <h1>{{ products[0]['category_name'] }}</h1>
 
-<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere voluptatum voluptas officiis quod, ipsum facilis amet quo reprehenderit obcaecati sapiente impedit dignissimos eos dolor! Exercitationem vitae labore atque maxime sequi!
-Odio recu
-{% endblock %}
+<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere voluptatum voluptas officiis quod, ipsum facilis
+  amet quo reprehenderit obcaecati sapiente impedit dignissimos eos dolor! Exercitationem vitae labore atque maxime
+  sequi!
+  Odio recu
+  {% endblock %}
 
 
-{% block second %}
-{% if (products|length) > 0 %}
-
+  {% block second %}
+  {% if (products|length) > 0 %}
 
 <div class="page-taxonomy-term">
   <div id="block-views-productlijn-producten-block" class="block block-views">
-
 
     <div class="content">
       <div
@@ -31,50 +31,42 @@ Odio recu
           <h1>{{ products[0]['category_name'] }} products</h1>
         </div>
 
-
-
         <div class="view-content">
-        {% for product in products %}
+          {% for product in products %}
 
-        
-        {% set url %}/{{category_animal.lower()}}/{{ product['category_name'].lower().replace(' ', '-') }}{% endset %}
-  
-
+          {% set product_slug %}{{ product['name'].lower().replace(' & ', '-').replace(' ', '-') }}{% endset %}
+          {% set productline_url %}/{{category_animal.lower()}}/{{ product['category_name'].lower().replace(' ', '-')
+          }}{% endset %}
+          {% set url %}{{ productline_url }}/{{ product_slug }}{% endset %}
 
           <div class="views-row views-row-{{loop.index}} views-row-odd views-row-first fade-in">
 
             <div class="views-field views-field-field-product-afbeelding">
-              <div class="field-content"><a
-                  href="{{ url }}">
-                  <img src="/static/assets/images/products/{{ product.category_imgsrc }}" alt="" />
+              <div class="field-content"><a href="{{ url }}">
+                  <img src="/static/assets/images/products/{{ product.imgsrc }}" alt="" />
                 </a></div>
             </div>
 
-            <h2 class="views-field views-field-name"> 
+            <h2 class="views-field views-field-name">
               <span class="field-content">{{ product.category_name }}</span>
             </h2>
             <div class="views-field views-field-field-detailpagina-titel">
               <div class="field-content">
-                <div><a
-                    href="{{ url }}">{{ product.producttitle }}</a>
+                <div><a href="{{ url }}">{{ product.name }} ({{ product.kg }} kg)</a>
                 </div>
               </div>
             </div>
             <div class="views-field views-field-field-subtitel">
-              <div class="field-content">{{ product.category_description }}</div>
+              <div class="field-content">{{ product.description }}</div>
             </div>
           </div>
 
+          {% endfor %}
 
-
-  {% endfor %}
-
-</div>
-
-
-</div>
-</div>
-</div>
+        </div>
+      </div>
+    </div>
+  </div>
   {% else %}
 
   <p>You do not have a product line with that ID</p>

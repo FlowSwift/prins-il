@@ -137,12 +137,14 @@ def dog_productline(productline):
 @app.route('/dog/<productline>/<product>')
 def dog_product(productline, product):
     products = []
-    if len(categories_info) > 0:
-        for category in categories_info:
-            if category['category_name'].lower().replace(' ', '-') == productline.lower():
-                products.append(category)
-                break
-        return render_template("product.html", products=products, category=category, category_animal='dog')
+    
+    if len(food_info) > 0:
+        for food in food_info:
+            product_name = food['name'].lower().replace(' & ', '-').replace(' ', '-')
+            if product == product_name:
+                products.append(food)
+        print(products)
+        return render_template("product.html", products=products, category_animal='Dog')
     else:
         return redirect("/our-products/dog")
 
