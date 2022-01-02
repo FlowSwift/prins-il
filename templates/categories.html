@@ -40,16 +40,15 @@
           {% for category in categories %}
             {% if category.category_animal == category_animal %}
 
-
-
+            {% set url %}/{{category_animal.lower()}}/{{ category['category_name'].lower().replace(' ', '-') }}{% endset %}
 
 
               <div class="views-row views-row-{{loop.index}} views-row-odd views-row-first">
 
                 <h3 class="views-field views-field-name"> <span class="field-content"><a
-                      href="https://www.prinspetfoods.com/dog/prins-dietetic-food-your-dog">{{ category.category }}</a></span> </h3>
+                      href="{{ url }}">{{ category.category_name }}</a></span> </h3>
                 <div class="views-field views-field-field-product-afbeelding">
-                  <div class="field-content"><a href="https://www.prinspetfoods.com/dog/prins-dietetic-food-your-dog"><img src="/static/assets/images/products/{{ category.imgsrc }}" alt="" /></a></div>
+                  <div class="field-content"><a href="{{ url }}"><img src="/static/assets/images/products/{{ category.category_imgsrc }}" alt="" /></a></div>
                 </div>
                 <div class="views-field views-field-nothing"> <span class="field-content">
                     <p></p>
@@ -61,7 +60,7 @@
                       {% endfor %}
                     </ul>
                     <p></p>
-                    <a href="{}">All products</a>
+                    <a href="{{ url }}">All products</a>
                   </span> </div>
               </div>
 

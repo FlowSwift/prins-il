@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html class="js" lang="he" dir="rtl">
+{% set title_s %}{% block title %}{% endblock %}{% endset %}
+{% include 'global/head.html' %}
+<body
+  class="html front not-logged-in no-sidebars page-node page-node- page-node-23 node-type-home i18n-en eu-cookie-compliance-processed"
+  data-new-gr-c-s-check-loaded="14.1042.0" data-gr-ext-installed="">
+
+  <div class="region-block header" style="opacity: 1;">
+    <header id="header" class="fixed">
+
+  {% include 'global/header.html' %}
+
+  {% block feature %}{% endblock %}
+</header>
+</div>
+  <div class="page-spanner" style="opacity: 1;">
+    <div class="page">
+
+      {% if self.hero() | trim %} 
+      <div class="hero field field-name-field-headertekst field-type-text-long field-label-hidden">
+        <div class="field-items"><div class="field-item even">
+          {% block hero %}{% endblock %}
+          
+        </div></div></div>
+         {% endif %}
+      
+
+      <div class="region-block main-spanner">
+        <section id="main" role="main" class="clearfix block-center">
+
+          
+
+          <div class="main-content" id="main-content">
+
+
+            <div class="region region-content">
+              <div id="block-system-main" class="block block-system">
+
+
+                <div class="content">
+                    
+                  
+
+                      {% include 'global/alert.html' %}
+                      {% block main %}{% endblock %}
+                     
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="second-main region-block">
+        <section class="block-center">
+          
+          {% block second %}{% endblock %}
+
+        </section>
+      </div>
+
+
+    </div>
+  </div>
+  {% include 'global/footer.html' %}

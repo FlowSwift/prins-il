@@ -122,11 +122,28 @@ def discover_prins():
 
 @app.route('/dog/<productline>')
 def dog_productline(productline):
-    for category in categories_info:
-        if category.lower() == productline.lower():
-            products = category
-            break
-    return render_template("category-products.html", products=products, category_animal='dog')
+    products = []
+    if len(categories_info) > 0:
+        for category in categories_info:
+            if category['category_name'].lower().replace(' ', '-') == productline.lower():
+                products.append(category)
+                break
+        return render_template("category-products.html", products=products, category_animal='dog')
+    else:
+        return redirect("/our-products/dog")
+
+
+@app.route('/dog/<productline>/<product>')
+def dog_product(productline, product):
+    products = []
+    if len(categories_info) > 0:
+        for category in categories_info:
+            if category['category_name'].lower().replace(' ', '-') == productline.lower():
+                products.append(category)
+                break
+        return render_template("product.html", products=products, category_animal='dog')
+    else:
+        return redirect("/our-products/dog")
 
 
 
