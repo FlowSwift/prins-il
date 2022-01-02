@@ -70,12 +70,12 @@ db = con.cursor()
 
 food_info_query = db.execute("""SELECT * FROM food JOIN categories ON food.category_id = categories.category_id""").fetchall()
 categories_info_query = db.execute("""SELECT * FROM categories""").fetchall()
-categories_info = []
+categories_info = {}
 for category in categories_info_query:
     bullets_query = db.execute("""SELECT bullet_text FROM bullets WHERE category_id = ? """, (category[0],)).fetchall()
     bullets = [tup[0] for tup in bullets_query] 
     category_info = {"category_id" : category[0], "category_name" : category[1], "category_animal" : category[2], "category_description" : category[3], "category_info" : category[4], "category_imgsrc" : category[5], "bullets" : bullets}
-    categories_info.append(category_info)
+    categories_info[category_info["category_name"].lower()] = category_info
 food_info = []
 for food in food_info_query:
     food_tmp = {"id" : food[0], "name" : food[1], "category_id" : food[2], "description" : food[3], "kg" : food[4], "itemNum" : food[5], "ean" : food[6], "animal" : food[7], "imgsrc" : food[8], "category_name" : food[10]}
@@ -123,18 +123,13 @@ def discover_prins():
 @app.route('/dog/<productline>')
 def dog_productline(productline):
     products = []
-
-    cat_name = str(productline.lower().replace('-', ' '))
-    print(cat_name)
-    cat_id = (db.execute("SELECT category_id FROM categories WHERE LOWER(category_name) = ?", [cat_name]).fetchone())
-    print(cat_id) # prints (2,)
-
-    if len(food_info_query) > 0:
-        for food in food_info_query:
-            if food.category_id == cat_id:
+    category_name = productline.lower().replace('-', ' ')
+    if len(food_info) > 0:
+        for food in food_info:
+            if food["category_id"] == categories_info[category_name]["category_id"]:
                 products.append(food)
-                break
-        return render_template("category-products.html", products=products, category_animal='dog')
+        print(products)
+        return render_template("category-products.html", products=products, category_animal='Dog')
     else:
         return redirect("/our-products/dog")
 
@@ -156,7 +151,8 @@ def dog_product(productline, product):
 @app.route('/our-products/dog')
 def dog_products():
     """Dog products page"""
-    return render_template("categories.html", categories=categories_info, category_animal='Dog')
+    dog_categories = [category for category in categories_info.values() if category["category_animal"] == "Dog"]
+    return render_template("categories.html", categories=dog_categories, category_animal='Dog')
 
 
 def errorhandler(e):

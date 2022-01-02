@@ -38,7 +38,6 @@
 
         <div class="view-content">
           {% for category in categories %}
-            {% if category.category_animal == category_animal %}
 
             {% set url %}/{{category_animal.lower()}}/{{ category['category_name'].lower().replace(' ', '-') }}{% endset %}
 
@@ -66,7 +65,6 @@
 
 
 
-            {% endif %}
           {% endfor %}
 
         </div>
