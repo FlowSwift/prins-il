@@ -37,7 +37,7 @@ Odio recu
         {% for product in products %}
 
         
-
+        {% set url %}/{{category_animal.lower()}}/{{ product['category_name'].lower().replace(' ', '-') }}{% endset %}
   
 
 
@@ -45,7 +45,7 @@ Odio recu
 
             <div class="views-field views-field-field-product-afbeelding">
               <div class="field-content"><a
-                  href="/dog/prins-procare-protection/prins-procare-protection-puppy">
+                  href="{{ url }}">
                   <img src="/static/assets/images/products/{{ product.category_imgsrc }}" alt="" />
                 </a></div>
             </div>
@@ -56,7 +56,7 @@ Odio recu
             <div class="views-field views-field-field-detailpagina-titel">
               <div class="field-content">
                 <div><a
-                    href="/dog/prins-procare-protection/prins-procare-protection-puppy">{{ product.producttitle }}</a>
+                    href="{{ url }}">{{ product.producttitle }}</a>
                 </div>
               </div>
             </div>

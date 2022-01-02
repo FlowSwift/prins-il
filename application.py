@@ -119,14 +119,20 @@ def discover_prins():
     """Discover prins info page"""
     return render_template("discover-prins.html")
 
-
+# http://127.0.0.1:5000/dog/fit-selection
 @app.route('/dog/<productline>')
 def dog_productline(productline):
     products = []
-    if len(categories_info) > 0:
-        for category in categories_info:
-            if category['category_name'].lower().replace(' ', '-') == productline.lower():
-                products.append(category)
+
+    cat_name = str(productline.lower().replace('-', ' '))
+    print(cat_name)
+    cat_id = (db.execute("SELECT category_id FROM categories WHERE LOWER(category_name) = ?", [cat_name]).fetchone())
+    print(cat_id) # prints (2,)
+
+    if len(food_info_query) > 0:
+        for food in food_info_query:
+            if food.category_id == cat_id:
+                products.append(food)
                 break
         return render_template("category-products.html", products=products, category_animal='dog')
     else:
@@ -141,7 +147,7 @@ def dog_product(productline, product):
             if category['category_name'].lower().replace(' ', '-') == productline.lower():
                 products.append(category)
                 break
-        return render_template("product.html", products=products, category_animal='dog')
+        return render_template("product.html", products=products, category=category, category_animal='dog')
     else:
         return redirect("/our-products/dog")
 
