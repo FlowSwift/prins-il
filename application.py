@@ -132,7 +132,7 @@ def productline(animal, productline):
 
 
 @app.route('/<animal>/<productline>/<product>')
-def dog_product(animal, productline, product):
+def animal_product(animal, productline, product):
     products = []
     if len(food_info) > 0:
         for food in food_info:
@@ -149,20 +149,7 @@ def dog_product(animal, productline, product):
 @app.route('/our-products/<animal>')
 def dog_products(animal):
     """Dog products page"""
-    print("------------")
-    print("------------")
-    print("------------")
-    print("------------")
-    print("------------")
-    print("------------")
     categories = [category for category in categories_info.values() if category["category_animal"] == animal]
-    print("------------")
-    print("------------")
-    print("------------")
-    print("------------")
-    print("------------")
-    print("------------")
-    print(categories)
     return render_template("categories.html", categories=categories, category_animal=animal)
 
 
