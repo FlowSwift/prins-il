@@ -103,11 +103,6 @@ def dealer_info():
     """Dealer Info page"""
     return render_template("dealer-info.html")
 
-@app.route("/our-products/cat")
-def cat_products():
-    """Cat products page"""
-    return render_template("advice-info.html")
-
 
 @app.route("/contact-us")
 def contact_us():
@@ -120,41 +115,55 @@ def discover_prins():
     return render_template("discover-prins.html")
 
 # http://127.0.0.1:5000/dog/fit-selection
-@app.route('/dog/<productline>')
-def dog_productline(productline):
+@app.route('/<animal>/<productline>')
+def productline(animal, productline):
     products = []
     category_name = productline.lower().replace('-', ' ')
     if len(food_info) > 0:
+        added_food = []
         for food in food_info:
-            if food["category_id"] == categories_info[category_name]["category_id"]:
+            if food["name"] not in added_food and food["category_id"] == categories_info[category_name]["category_id"]:
+                added_food.append(food["name"])
                 products.append(food)
         print(products)
-        return render_template("category-products.html", products=products, category_animal='Dog')
+        return render_template("category-products.html", products=products, category_animal=animal)
     else:
-        return redirect("/our-products/dog")
+        return redirect(f"/our-products/{animal}")
 
 
-@app.route('/dog/<productline>/<product>')
-def dog_product(productline, product):
+@app.route('/<animal>/<productline>/<product>')
+def dog_product(animal, productline, product):
     products = []
-    
     if len(food_info) > 0:
         for food in food_info:
             product_name = food['name'].lower().replace(' & ', '-').replace(' ', '-')
             if product == product_name:
                 products.append(food)
         print(products)
-        return render_template("product.html", products=products, category_animal='Dog')
+        return render_template("product.html", products=products, category_animal=animal)
     else:
-        return redirect("/our-products/dog")
+        return redirect(f"/our-products/{animal}")
 
 
 
-@app.route('/our-products/dog')
-def dog_products():
+@app.route('/our-products/<animal>')
+def dog_products(animal):
     """Dog products page"""
-    dog_categories = [category for category in categories_info.values() if category["category_animal"] == "Dog"]
-    return render_template("categories.html", categories=dog_categories, category_animal='Dog')
+    print("------------")
+    print("------------")
+    print("------------")
+    print("------------")
+    print("------------")
+    print("------------")
+    categories = [category for category in categories_info.values() if category["category_animal"] == animal]
+    print("------------")
+    print("------------")
+    print("------------")
+    print("------------")
+    print("------------")
+    print("------------")
+    print(categories)
+    return render_template("categories.html", categories=categories, category_animal=animal)
 
 
 def errorhandler(e):
