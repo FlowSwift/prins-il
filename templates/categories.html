@@ -47,7 +47,11 @@
                 <h3 class="views-field views-field-name"> <span class="field-content"><a
                       href="{{ url }}">{{ category.category_name }}</a></span> </h3>
                 <div class="views-field views-field-field-product-afbeelding">
-                  <div class="field-content"><a href="{{ url }}"><img src="/static/assets/images/products/{{ category.category_imgsrc }}" alt="" /></a></div>
+                  <div class="field-content">
+                    <a href="{{ url }}">
+                    <img src="/static/assets/images/categories/{{category_animal.lower()}}/{{ category.category_imgsrc }}" alt="" />
+                    </a>
+                  </div>
                 </div>
                 <div class="views-field views-field-nothing"> <span class="field-content">
                     <p></p>

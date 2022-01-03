@@ -1,17 +1,49 @@
-{% extends "layout-1col.html" %}
+{% extends "layout-product.html" %}
 
 {% block title %}
-{{ products[0]['category_name'] }}
+{{ products[0].name }} - {{ products[0]['category_name'] }}
 {% endblock %}
 
 {% block hero %}
-<h1>{{ products[0].name }}</h1>
+
+<div class="product-titel views-fieldset" data-module="views_fieldsets">
+  <div class="views-field views-field-name fade-ready" style="opacity: 1;"><span
+      class="field-content"><a href="https://www.prinspetfoods.com/dog/prins-fit-selection-dog">All
+        products</a></span></div>
+  <div class="views-field views-field-field-productlijn fade-ready" style="opacity: 1;">
+    <h3 class="field-content">{{ products[0]['category_name'] }}</h3>
+  </div>
+  <div class="views-field views-field-field-detailpagina-titel fade-ready" style="opacity: 1;">
+    <h1 class="field-content">{{ products[0].name }}</h1>
+  </div>
+  <div class="views-field views-field-field-subtitel fade-ready" style="opacity: 1;">
+    <div class="field-content">{{ products[0].description }}</div>
+  </div>
+  <div class="product-buttons views-fieldset" data-module="views_fieldsets">
+    <div>
+      <div class="product-voedingswaarde">{{ products[0].kg }}        
+        kg | XXX kg</div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<div class="views-field views-field-field-product-afbeelding fade-ready" style="opacity: 1;">
+  <div class="field-content">
+    <img src="/static/assets/images/products/{{category_animal.lower()}}/320/{{ products[0].imgsrc }}" alt="" />  
+  </div>
+</div>
+
+
+
+
+
 {% endblock %}
 
 {% block main %}
-
-<h1>{{ products[0].name }}</h1>
-
+ 
 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere voluptatum voluptas officiis quod, ipsum facilis
   amet quo reprehenderit obcaecati sapiente impedit dignissimos eos dolor! Exercitationem vitae labore atque maxime
   sequi!
@@ -20,58 +52,5 @@
 
 
   {% block second %}
-  {% if (products|length) > 0 %}
-
-<div class="page-taxonomy-term">
-  <div id="block-views-productlijn-producten-block" class="block block-views">
-
-    <div class="content">
-      <div
-        class="view view-productlijn-producten view-id-productlijn_producten view-display-id-block view-dom-id-3c80b22fa923a295f2f4663adb69c6b8 jquery-once-2-processed refresh-processed">
-        <div class="view-header">
-          <h1>{{ products[0].name }} products</h1>
-        </div>
-
-        <div class="view-content">
-          {% for product in products %}
-
-          {% set product_slug %}{{ product['name'].lower().replace(' & ', '-').replace(' ', '-') }}{% endset %}
-          {% set productline_url %}/{{category_animal.lower()}}/{{ product['category_name'].lower().replace(' ', '-')
-          }}{% endset %}
-          {% set url %}{{ productline_url }}/{{ product_slug }}{% endset %}
-
-          <div class="views-row views-row-{{loop.index}} views-row-odd views-row-first fade-in">
-
-            <div class="views-field views-field-field-product-afbeelding">
-              <div class="field-content"><a href="{{ url }}">
-                  <img src="/static/assets/images/products/{{ product.imgsrc }}" alt="" />
-                </a></div>
-            </div>
-
-            <h2 class="views-field views-field-name">
-              <span class="field-content">{{ product.category_name }}</span>
-            </h2>
-            <div class="views-field views-field-field-detailpagina-titel">
-              <div class="field-content">
-                <div><a href="{{ url }}">{{ product.name }} ({{ product.kg }} kg)</a>
-                </div>
-              </div>
-            </div>
-            <div class="views-field views-field-field-subtitel">
-              <div class="field-content">{{ product.description }}</div>
-            </div>
-          </div>
-
-          {% endfor %}
-
-        </div>
-      </div>
-    </div>
-  </div>
-  {% else %}
-
-  <p>You do not have a product line with that ID</p>
-  {% endif %}
-</div>
 
 {% endblock %}
