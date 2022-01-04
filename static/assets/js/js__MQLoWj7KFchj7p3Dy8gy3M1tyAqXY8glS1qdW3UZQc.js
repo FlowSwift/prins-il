@@ -1164,38 +1164,38 @@ jQuery(document).ready(function($){
 			}
 		});
 	
-	if (Drupal.eu_cookie_compliance.hasAgreed()) {
-		//if (!$('body').hasClass('logged-in') && $('body').hasClass('i18n-nl') && ($('body').hasClass('page-node-5022') || $('body').hasClass('page-voedingswijzer') || $('body').hasClass('node-type-leeftijdsfase'))) {
-		if (!$('body').hasClass('logged-in') && $('body').hasClass('i18n-nl')
-			&& ($('body').hasClass('page-node-61'))) {
-			(function(h,o,t,j,a,r) {
-				h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-				h._hjSettings={hjid:"411504",hjsv:"6"};
-				a=o.getElementsByTagName('head')[0];
-				r=o.createElement('script');r.async=1;
-				r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-				a.appendChild(r);
-			})(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
-		}
+	// if (Drupal.eu_cookie_compliance.hasAgreed()) {
+	// 	//if (!$('body').hasClass('logged-in') && $('body').hasClass('i18n-nl') && ($('body').hasClass('page-node-5022') || $('body').hasClass('page-voedingswijzer') || $('body').hasClass('node-type-leeftijdsfase'))) {
+	// 	if (!$('body').hasClass('logged-in') && $('body').hasClass('i18n-nl')
+	// 		&& ($('body').hasClass('page-node-61'))) {
+	// 		(function(h,o,t,j,a,r) {
+	// 			h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+	// 			h._hjSettings={hjid:"411504",hjsv:"6"};
+	// 			a=o.getElementsByTagName('head')[0];
+	// 			r=o.createElement('script');r.async=1;
+	// 			r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+	// 			a.appendChild(r);
+	// 		})(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+	// 	}
 		
-		// Mopinion		
-		if ($('body').hasClass('i18n-nl')) {
-			(function() {
-				var id = "uxvmeu9pgit4m5uib0ty4ye98jczeaz8aeq";
-				var js = document.createElement("script");
-				js.setAttribute("type","text/javascript");
-				js.setAttribute("src","//deploy.mopinion.com/js/pastease.js");
-				js.async = true;
-				document.getElementsByTagName("head")[0].appendChild(js);
-				var t = setInterval(function(){try{ new Pastease.load(id);clearInterval(t) } catch(e){}}, 50);
-			})();
-			$('body.page-voedingswijzer').on('click', '.answer-title', function() {
-				if (window.voedingswijzer.data.step == 4 && $('body').hasClass('i18n-nl')) {
-					setTimeout(function(){ srv.openModal(true,'1ead541e1417fab3090e18baccc26b9a8063e662'); }, 30000);
-				}
-			});
-		}
-	}
+	// 	// Mopinion		
+	// 	if ($('body').hasClass('i18n-nl')) {
+	// 		(function() {
+	// 			var id = "uxvmeu9pgit4m5uib0ty4ye98jczeaz8aeq";
+	// 			var js = document.createElement("script");
+	// 			js.setAttribute("type","text/javascript");
+	// 			js.setAttribute("src","//deploy.mopinion.com/js/pastease.js");
+	// 			js.async = true;
+	// 			document.getElementsByTagName("head")[0].appendChild(js);
+	// 			var t = setInterval(function(){try{ new Pastease.load(id);clearInterval(t) } catch(e){}}, 50);
+	// 		})();
+	// 		$('body.page-voedingswijzer').on('click', '.answer-title', function() {
+	// 			if (window.voedingswijzer.data.step == 4 && $('body').hasClass('i18n-nl')) {
+	// 				setTimeout(function(){ srv.openModal(true,'1ead541e1417fab3090e18baccc26b9a8063e662'); }, 30000);
+	// 			}
+	// 		});
+	// 	}
+	// }
 	
 	$('body.page-voedingswijzer').on({
 		mouseenter: function() {

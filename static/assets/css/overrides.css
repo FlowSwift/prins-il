@@ -137,3 +137,27 @@
 .page-taxonomy-term .view-productlijn-producten .view-content .views-row {
   float: right;
 }
+.node-type-product .main-spanner #group-foodinfo-node-product-default ul.resp-tabs-list {
+  display: none;
+}
+h2.resp-accordion {
+  color: #fff;
+  padding: 20px 10px 0 10px;
+}
+.node-type-product .main-spanner #group-foodinfo-node-product-default .resp-tab-content:nth-child(2) .field {
+  width: auto;
+  float: none;
+}
+/* .field.field-name-field-table-mineralen.field-type-tablefield.field-label-hidden {
+  width: 100%;
+} */
+@media (min-width: 768px) {
+  .node-type-product .main-spanner #group-foodinfo-node-product-default .resp-tab-content .field table {
+    width: calc(33% - 20px);
+    float: right;
+    margin: 10px; 
+  }
+}
+.field-name-field-samenstelling.field-type-text-long {
+  clear: both;
+}
