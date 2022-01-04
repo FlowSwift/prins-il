@@ -97,9 +97,43 @@
 
 .copyright .social-icons ul li a.icon {
   border-radius: 50%;
-  border: 1px solid #285c4d;
+  border: 2px solid #96c100;
 }
 .copyright .social-icons {
   clear: both;
   float: left;
+}
+
+
+#header nav .main-menu .menu li .menu li a.menu_icon.menu-508:before, #header nav .main-menu .menu li .menu li a.menu_icon.menu-590:before {
+  background-image: url(/static/assets/images/menu/submenu-kat.png);
+}
+#header nav .main-menu .menu li .menu li a.menu_icon:before {
+  background-image: url(/static/assets/images/menu/submenu-hond.png);
+}
+#header nav .main-menu .menu li .menu li a.menu_icon.menu-510:before {
+  background-image: url(/static/assets/images/menu/submenu-voedingswijzer.png);
+}
+#header nav .main-menu .menu li .menu li a.menu_icon.menu-508:before, #header nav .main-menu .menu li .menu li a.menu_icon.menu-590:before,
+#header nav .main-menu .menu li .menu li a.menu_icon:before,
+#header nav .main-menu .menu li .menu li a.menu_icon.menu-510:before {
+  margin-left: 5px;
+}
+
+.copyright .social-icons ul li a.icon.icon-facebook {
+  background-image: url(/static/assets/images/menu/icon-facebook.png);
+}
+#header nav .main-menu .block-search .form-actions input[type="submit"] {
+  background-image: url(/static/assets/images/menu/icon-search.png);
+}
+.page-taxonomy-term .view-productlijn-overzicht li:before {
+  background-image: url(/static/assets/images/menu/list-icon.png);
+  right: -25px;
+  left: auto;
+}
+.page-taxonomy-term .view-productlijn-overzicht .views-row .views-field-field-product-afbeelding {
+  float: left;
+}
+.page-taxonomy-term .view-productlijn-producten .view-content .views-row {
+  float: right;
 }

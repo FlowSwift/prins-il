@@ -260,21 +260,21 @@ jQuery(document).ready(function($){
         }, 400);
    });
     
-    $('.view-header-animal-choice .views-row').click(function(){
-        $('.header-interactive').addClass('active-slide');
-        if($(this).closest('.views-row').hasClass('views-row-1')){
-            $('#block-views-home-leeftijdenwidget-block').addClass('active');
-            if($(window).width() > 768){
-                window.homeheader.player_animal_type('kat');
-            }
-        }else{
-            $('#block-views-home-leeftijdenwidget-block-1').addClass('active');
-            if($(window).width() > 768){
-                window.homeheader.player_animal_type('hond');
-            }
-        }
-        return false;
-    });
+    // $('.view-header-animal-choice .views-row').click(function(){
+        // $('.header-interactive').addClass('active-slide');
+        // if($(this).closest('.views-row').hasClass('views-row-1')){
+        //     $('#block-views-home-leeftijdenwidget-block').addClass('active');
+        //     if($(window).width() > 768){
+        //         window.homeheader.player_animal_type('kat');
+        //     }
+        // }else{
+        //     $('#block-views-home-leeftijdenwidget-block-1').addClass('active');
+        //     if($(window).width() > 768){
+        //         window.homeheader.player_animal_type('hond');
+        //     }
+        // }
+        // return false;
+    // });
     
     $('.slide-close').click(function(){
         $('.header-interactive').removeClass('active-slide');
