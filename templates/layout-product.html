@@ -2,7 +2,6 @@
 <html class="js" lang="he" dir="rtl">
 {% set title_s %}{% block title %}{% endblock %}{% endset %}
 {% include 'global/head.html' %}
-
 <body
   class="html front not-logged-in no-sidebars page-node page-node- page-node-23  node-type-product i18n-en eu-cookie-compliance-processed"
   data-new-gr-c-s-check-loaded="14.1042.0" data-gr-ext-installed="">
@@ -15,17 +14,11 @@
       <div class="header-interactive">
         <div class="region region-header">
           <div id="block-views-header-producten-block" class="block block-views">
-
-
             <div class="content">
               <div
                 class="view view-header-producten view-id-header_producten view-display-id-block view-dom-id-f0fe63a107d08c6341e93a53f43ba739">
-
-
-
                 <div class="view-content">
                   <div class="views-row views-row-1 views-row-odd views-row-first views-row-last">
-
                     <div class="views-field views-field-field-startafbeelding">
                       <div class="field-content">
                         <div class="home-bg-image">
@@ -35,12 +28,8 @@
                     {% if self.hero() | trim %}
                     {% block hero %}{% endblock %}
                     {% endif %}
-
-
                   </div>
                 </div>
-
-
               </div>
             </div>
           </div>
@@ -53,40 +42,24 @@
     <div class="page">
       <div class="region-block main-spanner">
         <section id="main" role="main" class="clearfix block-center">
-
-
           <div class="main-content" id="main-content">
-
-
             <div class="region region-content">
               <div id="block-system-main" class="block block-system">
-
-
                 <div class="content">
                   <div id="node-7997" class="node node-product clearfix"
                     about="https://www.prinspetfoods.com/dog/prins-fit-selection-dog/prins-fit-selection-puppy-junior"
                     typeof="sioc:Item foaf:Document">
-
-
-                    <span property="dc:title" content="Prins Fit Selection Puppy &amp; Junior"
-                      class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="0"
-                      datatype="xsd:integer" class="rdf-meta element-hidden"></span>
-
                     <div class="content">
                       <div class="field field-name-body field-type-text-with-summary field-label-hidden">
                         <div class="field-items">
                           <div class="field-item even" property="content:encoded">
-                            <h2 class="rtecenter">For puppies and junior dogs</h2>
-                            <p class="rtecenter">Fit Selection Puppy &amp; Junior Perfect Start is especially suitable
-                              for the growing family dog and contains all nutrients and energy that puppies and junior
-                              dogs require. This complete food contributes to healthy growth, an effective immune system
-                              and optimal development of bones and joints. Your puppy will develop in a well-balanced
-                              way as it grows into adulthood.<br>
-                              &nbsp;</p>
+                            {% include 'global/alert.html' %}
+                            {% block main %}{% endblock %}
                           </div>
                         </div>
                       </div>
                       <div class="field-collection-container clearfix">
+                        Do we want this? Dynamic per product?
                         <div class="field field-name-field-usp-s field-type-field-collection field-label-hidden">
                           <div class="field-items">
                             <div class="field-item even">
@@ -186,7 +159,6 @@
                         </div>
                       </div>
 
-
                       <div class="group-foodinfo field-group-easy-responsive-tabs-nav-wrapper">
                         <h2>Nutritional Information</h2>
                         <div id="group-foodinfo-node-product-default" class="field-group-easy-responsive-tabs-processed"
@@ -211,94 +183,20 @@
                                 <div class="field-items">
                                   <div class="field-item even">
 
-
-
-
-
                                     {% include 'composition/fit-selection-chicken-rice.html' %}
-
 
                                   </div>
                                 </div>
                               </div>
-                            
                             </div>
-                              
-                            
                           </div>
                         </div>
-
                         <div class="clear clearfix"></div>
                       </div>
 
-                      <div
-                        class="collapsible group-subbox field-group-div speed-fast effect-none fieldgroup-effects-processed">
-                        <h3><span class="field-group-format-toggler"><a class="field-group-format-title"
-                              href="#"></a></span></h3>
-                        <div class="field-group-format-wrapper" style="display: block;">
-                          <div class="field field-name-field-subafbeelding field-type-image field-label-hidden">
-                            <div class="field-items">
-                              <div class="field-item even"><img typeof="foaf:Image"
-                                  src="https://www.prinspetfoods.com/sites/default/files/ProCare%20croque%20Senior_0.jpg"
-                                  width="931" height="665" alt=""></div>
-                            </div>
-                          </div>
-                          <div class="subcontent-wrap">
-                            <div class="field field-name-field-usp-afbeelding field-type-image field-label-hidden">
-                              <div class="field-items">
-                                <div class="field-item even"><img typeof="foaf:Image"
-                                    src="https://www.prinspetfoods.com/sites/default/files/icon-usp-1_1.png" width="228"
-                                    height="228" alt=""></div>
-                              </div>
-                            </div>
-                            <div class="field field-name-field-subheader field-type-text field-label-hidden">
-                              <div class="field-items">
-                                <div class="field-item even">100% natural food</div>
-                              </div>
-                            </div>
-                            <div class="field field-name-field-subalinea field-type-text-long field-label-hidden">
-                              <div class="field-items">
-                                <div class="field-item even">
-                                  <p>All of our products are 100% natural and free from animal testing. We don't use any
-                                    artificial aromatics, colourants or flavourings and only opt for the best
-                                    ingredients of superior quality, coming from reliable partners.</p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                      {% include 'global/product-subbox.html' %}
+
                     </div>
-
-
-
-                  </div>
-                </div>
-              </div>
-              <div id="block-views-crm-name-category-block" class="block block-views">
-
-
-                <div class="content">
-                  <div
-                    class="view view-crm-name-category view-id-crm_name_category view-display-id-block view-dom-id-b4ab4d88f67837f4062da25cde5efc32">
-
-
-
-                    <div class="view-content">
-                      <div class="views-row views-row-1 views-row-odd views-row-first views-row-last">
-
-                        <div class="views-field views-field-field-crm-name">
-                          <div class="field-content"><input type="hidden" name="crm_name" id="crm_name" value=""
-                              data-urlname=""></div>
-                        </div>
-                      </div>
-                    </div>
-
-
-
-
-
-
                   </div>
                 </div>
               </div>
@@ -306,54 +204,8 @@
           </div>
         </section>
       </div>
-
-
-
     </div>
   </div>
+ 
 
-  <div class="page-spanner" style="opacity: 1;">
-    <div class="page">
-
-
-
-      <div class="region-block main-spanner">
-        <section id="main" role="main" class="clearfix block-center">
-
-
-
-          <div class="main-content" id="main-content">
-
-
-            <div class="region region-content">
-              <div id="block-system-main" class="block block-system">
-
-
-                <div class="content">
-
-
-
-                  {% include 'global/alert.html' %}
-                  {% block main %}{% endblock %}
-
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </section>
-      </div>
-
-
-      <div class="second-main region-block">
-        <section class="block-center">
-
-          {% block second %}{% endblock %}
-
-        </section>
-      </div>
-
-
-    </div>
-  </div>
-  {% include 'global/footer.html' %}
+{% include 'global/footer.html' %}

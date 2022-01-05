@@ -7,8 +7,8 @@
 {% block hero %}
 
 <div class="product-titel views-fieldset" data-module="views_fieldsets">
-  <div class="views-field views-field-name fade-ready" style="opacity: 1;"><span
-      class="field-content"><a href="https://www.prinspetfoods.com/dog/prins-fit-selection-dog">All
+  <div class="views-field views-field-name fade-ready" style="opacity: 1;"><span class="field-content"><a
+        href="https://www.prinspetfoods.com/dog/prins-fit-selection-dog">All
         products</a></span></div>
   <div class="views-field views-field-field-productlijn fade-ready" style="opacity: 1;">
     <h3 class="field-content">{{ products[0]['category_name'] }}</h3>
@@ -21,8 +21,12 @@
   </div>
   <div class="product-buttons views-fieldset" data-module="views_fieldsets">
     <div>
-      <div class="product-voedingswaarde">{{ products[0].kg }}        
-        kg | XXX kg</div>
+      <div class="product-voedingswaarde">
+        {% for product in products %}
+        {{ product.kg }}kg
+        {{ " | " if not loop.last }}
+        {% endfor %}  
+      </div>
     </div>
   </div>
 
@@ -32,7 +36,7 @@
 
 <div class="views-field views-field-field-product-afbeelding fade-ready" style="opacity: 1;">
   <div class="field-content">
-    <img src="/static/assets/images/products/{{category_animal.lower()}}/320/{{ products[0].imgsrc }}" alt="" />  
+    <img src="/static/assets/images/products/{{category_animal.lower()}}/320/{{ products[0].imgsrc }}" alt="" />
   </div>
 </div>
 
@@ -43,14 +47,16 @@
 {% endblock %}
 
 {% block main %}
- 
-<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere voluptatum voluptas officiis quod, ipsum facilis
-  amet quo reprehenderit obcaecati sapiente impedit dignissimos eos dolor! Exercitationem vitae labore atque maxime
-  sequi!
-  Odio recu
-  {% endblock %}
 
 
-  {% block second %}
+<h2 class="rtecenter">Subtitle - Pull this from DB?</h2>
+<p class="rtecenter">Description2 - Pull this from DB?
 
+</p>
+
+{% endblock %}
+
+
+{% block second %}
+second block
 {% endblock %}

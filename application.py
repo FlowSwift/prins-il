@@ -1,40 +1,17 @@
-import redis
-
 import sqlite3
-from flask import Flask, flash, redirect, render_template, request, session
-from flask_session import Session
-from tempfile import mkdtemp
+from flask import Flask, redirect, render_template
 from werkzeug.exceptions import default_exceptions, HTTPException, InternalServerError
-from werkzeug.security import check_password_hash, generate_password_hash
 
 # from flask_babel import Babel
 from helpers import apology, usd, session_get_int
 
-# default it runs on port 6379
-r = redis.StrictRedis(host="0.0.0.0", port=6379, db=0)
-
 app = Flask(__name__)
-# babel = Babel(app)
 
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 
-# LANGUAGES = {
-#     'en': 'English',
-#     'he': 'Hebrew'
-# }
-# app.config['LANGUAGES'] = LANGUAGES
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
-
-
-
-# @babel.localeselector
-# def get_locale():
-#     """Set localization for text keys"""
-#     if (session.get("language") is not None):
-#         return session.get('language')['charcode']
-#     return request.accept_languages.best_match(app.config['LANGUAGES'].keys())
 
 
 @app.after_request
@@ -45,58 +22,41 @@ def after_request(response):
     return response
 
 
-UPLOAD_FOLDER = 'static/files'
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.jinja_env.filters["usd"] = usd
-app.config["SESSION_FILE_DIR"] = mkdtemp()
-
-# TODO
-# Details on the Secret Key: https://flask.palletsprojects.com/en/1.1.x/config/#SECRET_KEY
-# NOTE: The secret key is used to cryptographically-sign the cookies used for storing
-#       the session identifiesession.
-app.secret_key = 'PRINS_SESSION_KEY'
-
-# Configure Redis for storing the session data on the server-side
-app.config['SESSION_TYPE'] = 'redis'
-app.config['SESSION_PERMANENT'] = False
-app.config['SESSION_USE_SIGNER'] = True
-app.config['SESSION_REDIS'] = redis.from_url('redis://0.0.0.0:6379')
-
-Session(app)
 
 con = sqlite3.connect("prins.db")
-
 db = con.cursor()
 
-food_info_query = db.execute("""SELECT * FROM food JOIN categories ON food.category_id = categories.category_id""").fetchall()
+
+food_info_query = db.execute(
+    """SELECT * FROM food JOIN categories ON food.category_id = categories.category_id""").fetchall()
 categories_info_query = db.execute("""SELECT * FROM categories""").fetchall()
 categories_info = {}
 for category in categories_info_query:
-    bullets_query = db.execute("""SELECT bullet_text FROM bullets WHERE category_id = ? """, (category[0],)).fetchall()
-    bullets = [tup[0] for tup in bullets_query] 
-    category_info = {"category_id" : category[0], "category_name" : category[1], "category_animal" : category[2], "category_description" : category[3], "category_info" : category[4], "category_imgsrc" : category[5], "bullets" : bullets}
+    bullets_query = db.execute(
+        """SELECT bullet_text FROM bullets WHERE category_id = ? """, (category[0],)).fetchall()
+    bullets = [tup[0] for tup in bullets_query]
+    category_info = {"category_id": category[0], "category_name": category[1], "category_animal": category[2],
+                     "category_description": category[3], "category_info": category[4], "category_imgsrc": category[5], "bullets": bullets}
     categories_info[category_info["category_name"].lower()] = category_info
 food_info = []
 for food in food_info_query:
-    food_tmp = {"id" : food[0], "name" : food[1], "category_id" : food[2], "description" : food[3], "kg" : food[4], "itemNum" : food[5], "ean" : food[6], "animal" : food[7], "imgsrc" : food[8], "category_name" : food[10]}
+    food_tmp = {"id": food[0], "name": food[1], "category_id": food[2], "description": food[3], "kg": food[4],
+                "itemNum": food[5], "ean": food[6], "animal": food[7], "imgsrc": food[8], "category_name": food[10]}
     food_info.append(food_tmp)
-
-
 
 
 @app.route("/")
 def index():
-    """Landing page for visitors, dashboard for registered users"""
-    if (session_get_int("user_id") is not None):
-        return render_template("index.html")
-    else:
-        return render_template("index.html")
+    """Landing page"""
+    return render_template("index.html")
 
 
 @app.route("/advice-info")
 def advice_info():
     """Advice and Info page"""
     return render_template("advice-info.html")
+
 
 @app.route("/dealer-info")
 def dealer_info():
@@ -109,14 +69,25 @@ def contact_us():
     """Contact us page"""
     return render_template("contact-us.html")
 
+
 @app.route("/discover-prins")
 def discover_prins():
     """Discover prins info page"""
     return render_template("discover-prins.html")
 
-# http://127.0.0.1:5000/dog/fit-selection
+
+@app.route('/our-products/<animal>')
+def dog_products(animal):
+    """All product lines listed by animal"""
+    categories = [category for category in categories_info.values(
+    ) if category["category_animal"] == animal]
+    return render_template("categories.html", categories=categories, category_animal=animal)
+
+
 @app.route('/<animal>/<productline>')
 def productline(animal, productline):
+    '''Show all products by product line'''
+    # http://127.0.0.1:5000/dog/fit-selection
     products = []
     category_name = productline.lower().replace('-', ' ')
     if len(food_info) > 0:
@@ -133,24 +104,19 @@ def productline(animal, productline):
 
 @app.route('/<animal>/<productline>/<product>')
 def animal_product(animal, productline, product):
+    '''Single product page'''
+    # http://127.0.0.1:5000/dog/fit-selection/chicken-rice
     products = []
     if len(food_info) > 0:
         for food in food_info:
-            product_name = food['name'].lower().replace(' & ', '-').replace(' ', '-')
+            product_name = food['name'].lower().replace(
+                ' & ', '-').replace(' ', '-')
             if product == product_name:
                 products.append(food)
         print(products)
         return render_template("product.html", products=products, category_animal=animal)
     else:
         return redirect(f"/our-products/{animal}")
-
-
-
-@app.route('/our-products/<animal>')
-def dog_products(animal):
-    """Dog products page"""
-    categories = [category for category in categories_info.values() if category["category_animal"] == animal]
-    return render_template("categories.html", categories=categories, category_animal=animal)
 
 
 def errorhandler(e):

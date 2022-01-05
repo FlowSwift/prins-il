@@ -131,6 +131,9 @@
   right: -25px;
   left: auto;
 }
+.product-voedingswaarde {
+  background-image: url(/static/assets/images/menu/weight-icon.png);
+}
 .page-taxonomy-term .view-productlijn-overzicht .views-row .views-field-field-product-afbeelding {
   float: left;
 }
@@ -160,4 +163,39 @@ h2.resp-accordion {
 }
 .field-name-field-samenstelling.field-type-text-long {
   clear: both;
+}
+
+.node-type-product .header-interactive .view-header-producten .views-field-field-product-afbeelding {
+  left: 50%;
+  margin-right: 0;
+  margin-left: -600px;
+  width: 600px;
+}
+.node-type-product .header-interactive .view-header-producten .product-titel .views-field {
+  padding-right: 0;
+  padding-left: 30%;
+}
+.node-type-product .header-interactive .view-header-producten .views-field-field-detailpagina-titel, .node-type-product .header-interactive .view-header-producten .views-field-title {
+  text-align: right;
+}
+.node-type-product .header-interactive .view-header-producten .views-field-name a:before {
+  margin-right: 0;
+  margin-left: 10px;
+}
+
+.node-type-product .main-spanner .group-subbox .field-name-field-subafbeelding:before {
+  left: auto;
+  right: 0;
+  transform: rotate(180deg);
+}
+.node-type-product .main-spanner .group-subbox .field {
+  float: left;
+  clear: none;
+}
+.node-type-product .main-spanner .group-subbox .field-name-field-subafbeelding img {
+  float: right;
+}
+.node-type-product .main-spanner .group-subbox {
+  background: #98c010 url(/static/assets/images/menu/samenstelling-bg.png) right center no-repeat; 
+  background-size: 50% 100%;
 }
