@@ -77,6 +77,12 @@ def discover_prins():
     return render_template("discover-prins.html")
 
 
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    """Search page"""
+    return render_template("search.html")
+
+
 @app.route('/our-products/<animal>')
 def our_products(animal):
     """All product lines listed by animal"""
