@@ -211,3 +211,9 @@ h2.resp-accordion {
   clip: rect(0,0,0,0);
   border: 0;
 }
+
+@media (max-width: 1080px) {
+  #header .view-home-header video {
+      display: none;
+  }
+}
