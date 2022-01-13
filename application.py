@@ -41,8 +41,8 @@ for category in categories_info_query:
     categories_info[category_info["category_name"].lower()] = category_info
 food_info = []
 for food in food_info_query:
-    food_tmp = {"id": food[0], "name": food[1], "category_id": food[2], "description": food[3], "kg": food[4],
-                "itemNum": food[5], "ean": food[6], "animal": food[7], "imgsrc": food[8], "category_name": food[10]}
+    food_tmp = {"id": food[0], "name": food[1], "category_id": food[2], "subtitle": food[3], "desc_header": food[4], "description": food[5], "kg": food[6],
+                "itemNum": food[7], "ean": food[8], "animal": food[9], "imgsrc": food[10], "category_name": food[12]}
     food_info.append(food_tmp)
 
 

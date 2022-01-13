@@ -6,7 +6,7 @@ import sqlite3
 import shutil
 
 #INSERT INTO food (name, kg, category) VALUES ("A", 2, (SELECT category_id FROM categories WHERE category_name 
-parts = split(r"\n,+\s*\n", Path("final_inv.csv").read_text())
+parts = split(r"\n,+\s*\n", Path("final_inv.csv").read_text(encoding='utf-8-sig'))
 
 shutil.move("prins.db", "backups/prins.db")  # create backup before deleting
 con = sqlite3.connect("prins.db")
@@ -28,6 +28,8 @@ db.execute("""CREATE TABLE "food" (
 	"id"	INTEGER,
 	"name"	TEXT,
     "category_id"	INTEGER NOT NULL,
+	"subtitle"	TEXT,
+    "desc_header"	TEXT,
 	"description"	TEXT,
 	"kg"	INTEGER,
 	"itemNum"	TEXT,
@@ -52,6 +54,6 @@ for line in category_table:  # init categories and bullets
         db.execute("""INSERT INTO bullets (category_id, bullet_text) VALUES (?, ?)""", (category_ids[line["category"]], line[f"bullet{i+1}"]))
 con.commit()
 for line in food_table:
-    columns = {"name" : line["food_name"], "category_id" : category_ids[line["category"]], "description" : line["description"], "kg" : line["kg"], "itemNum" : line["itemNum"], "ean" : line["EAN"], "animal" : line["animal"], "imgsrc" : line["imgsrc"]}
-    db.execute("""INSERT INTO food (name, category_id, description, kg, itemNum, ean, animal, imgsrc) VALUES (:name, :category_id, :description, :kg, :itemNum, :ean, :animal, :imgsrc)""", columns)
+    columns = {"name" : line["food_name"], "category_id" : category_ids[line["category"]], "subtitle" : line["subtitle"], "desc_header" : line["desc_header"], "description" : line["description"], "kg" : line["kg"], "itemNum" : line["itemNum"], "ean" : line["EAN"], "animal" : line["animal"], "imgsrc" : line["imgsrc"]}
+    db.execute("""INSERT INTO food (name, category_id, subtitle, desc_header, description, kg, itemNum, ean, animal, imgsrc) VALUES (:name, :category_id, :subtitle, :desc_header, :description, :kg, :itemNum, :ean, :animal, :imgsrc)""", columns)
 con.commit()

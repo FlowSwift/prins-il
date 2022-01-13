@@ -17,7 +17,7 @@
     <h1 class="field-content">{{ products[0].name }}</h1>
   </div>
   <div class="views-field views-field-field-subtitel fade-ready">
-    <div class="field-content">{{ products[0].description }}</div>
+    <div class="field-content">{{ products[0].subtitle }}</div>
   </div>
   <div class="product-buttons views-fieldset" data-module="views_fieldsets">
     <div>
@@ -50,8 +50,8 @@
 {% block main %}
 
 
-<h2 class="rtecenter">Subtitle - Pull this from DB?</h2>
-<p class="rtecenter">Description2 - Pull this from DB?
+<h2 class="rtecenter">{{ products[0].desc_header }}</h2>
+<p class="rtecenter">{{ products[0].description }}
 
 </p>
 
