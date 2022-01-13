@@ -77,12 +77,15 @@ def discover_prins():
 
 
 @app.route('/our-products/<animal>')
-def dog_products(animal):
+def our_products(animal):
     """All product lines listed by animal"""
     categories = [category for category in categories_info.values(
     ) if category["category_animal"] == animal]
-    return render_template("categories.html", categories=categories, category_animal=animal)
-
+    print(categories)
+    if len(categories) > 0:
+      return render_template("categories.html", categories=categories, category_animal=animal)
+    else:
+      return redirect("/")  
 
 @app.route('/<animal>/<productline>')
 def productline(animal, productline):

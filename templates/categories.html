@@ -1,22 +1,28 @@
-{% extends "layout-1col.html" %}
+{% extends "layout-categories.html" %}
 
 {% block title %}
-{{ categories[0].category_animal}} Products
+  {% if category_animal == 'dog' %}
+    Dog Products
+  {% elif category_animal == 'cat' %}
+    Cat Products
+  {% else %}
+    Products
+  {% endif %}
 {% endblock %}
 
 {% block hero %}
 {% endblock %}
 
+{% block feature %}
+  {% if category_animal == 'dog' %}
+    {% include 'heros/products-dog.html' %}
+  {% elif category_animal == 'cat' %}
+    {% include 'heros/products-cat.html' %}
+  {% endif %}
+{% endblock %}
+
 {% block main %}
-
-<h1>Our products
-  Only the best for your {{categories[0].category_animal}}</h1>
-
-<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere voluptatum voluptas officiis quod, ipsum facilis
-  amet quo reprehenderit obcaecati sapiente impedit dignissimos eos dolor! Exercitationem vitae labore atque maxime
-  sequi!
-  Odio recu
-  {% endblock %}
+{% endblock %}
 
 
   {% block second %}
@@ -31,7 +37,7 @@
       <div
         class="view view-productlijn-overzicht view-id-productlijn_overzicht view-display-id-block view-dom-id-f81512cc01cf43ba62a9e7162015ccff">
         <div class="view-header">
-          <h1>{{ category_animal }} products</h1>
+          <h1 class="sr-only">{{ title_s }}</h1>
         </div>
 
 
