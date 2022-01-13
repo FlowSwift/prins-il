@@ -238,3 +238,7 @@ h2.resp-accordion {
 .node-type-product .home-bg-image {
   background-size:cover;opacity:0.7;
 }
+.node-type-product .header-interactive .view-header-producten .views-field-name a:hover:before {
+  padding-right: 0;
+  padding-left: 5px;
+}
