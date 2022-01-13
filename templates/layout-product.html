@@ -164,26 +164,35 @@
                         <div id="group-foodinfo-node-product-default" class="field-group-easy-responsive-tabs-processed"
                           style="display: block; width: 100%; margin: 0px;">
                           <ul class="resp-tabs-list group-foodinfo ">
-                            <li class="resp-tab-item resp-tab-active" aria-controls="tab_item-0" role="tab">Composition
+                            <li class="resp-tab-item" aria-controls="tab_item-0" id="li-tab_item-0" role="tab">Composition
                             </li>
-                            <li class="resp-tab-item" aria-controls="tab_item-1" role="tab">Directions</li>
-                            <li class="resp-tab-item" aria-controls="tab_item-2" role="tab">Amount per day</li>
-                            <li class="resp-tab-item" aria-controls="tab_item-3" role="tab">Transfer</li>
-                            <li class="resp-tab-item" aria-controls="tab_item-4" role="tab">Additional advice</li>
+                            <!-- <li class="resp-tab-item" aria-controls="tab_item-1" id="li-tab_item-1" role="tab">Directions</li> -->
+                            <li class="resp-tab-item" aria-controls="tab_item-2" id="li-tab_item-2" role="tab">Amount per day</li>
+                            <!-- <li class="resp-tab-item" aria-controls="tab_item-3" id="li-tab_item-3" role="tab">Transfer</li> -->
+                            <!-- <li class="resp-tab-item" aria-controls="tab_item-4" id="li-tab_item-4" role="tab">Additional advice</li> -->
                           </ul>
 
                           <div class="resp-tabs-container group-foodinfo ">
-                            <h2 class="resp-accordion resp-tab-active" role="tab" aria-controls="tab_item-0"><span
-                                class="resp-arrow"></span>Composition</h2>
-                            <div class="resp-tab-content resp-tab-content-active" style="display:block"
-                              aria-labelledby="tab_item-0">
-                              
+                            <div class="resp-tab-content resp-tab-content-active" 
+                            aria-labelledby="tab_item-0" id="tab_item-0">
+                              <h2 class="resp-accordion sr-only">Composition</h2>
                               <div
                                 class="field field-name-field-table-mineralen field-type-tablefield field-label-hidden">
                                 <div class="field-items">
                                   <div class="field-item even">
-
                                     {% include 'composition/fit-selection-chicken-rice.html' %}
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="resp-tab-content resp-tab-content-active" 
+                              aria-labelledby="tab_item-2" id="tab_item-2">
+                              <div
+                                class="field field-name-field-table-mineralen field-type-tablefield field-label-hidden">
+                                <div class="field-items">
+                                  <div class="field-item even">
+                                    <h2 class="resp-accordion sr-only">Amount per Day</h2>
+                                    amount per day
 
                                   </div>
                                 </div>

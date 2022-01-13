@@ -7,16 +7,16 @@
 {% block hero %}
 
 <div class="product-titel views-fieldset" data-module="views_fieldsets">
-  <div class="views-field views-field-name fade-ready" style="opacity: 1;"><span class="field-content"><a
+  <div class="views-field views-field-name fade-ready"><span class="field-content"><a
         href="https://www.prinspetfoods.com/dog/prins-fit-selection-dog">All
         products</a></span></div>
-  <div class="views-field views-field-field-productlijn fade-ready" style="opacity: 1;">
+  <div class="views-field views-field-field-productlijn fade-ready">
     <h3 class="field-content">{{ products[0]['category_name'] }}</h3>
   </div>
-  <div class="views-field views-field-field-detailpagina-titel fade-ready" style="opacity: 1;">
+  <div class="views-field views-field-field-detailpagina-titel fade-ready">
     <h1 class="field-content">{{ products[0].name }}</h1>
   </div>
-  <div class="views-field views-field-field-subtitel fade-ready" style="opacity: 1;">
+  <div class="views-field views-field-field-subtitel fade-ready">
     <div class="field-content">{{ products[0].subtitle }}</div>
   </div>
   <div class="product-buttons views-fieldset" data-module="views_fieldsets">
@@ -34,9 +34,10 @@
 
 
 
-<div class="views-field views-field-field-product-afbeelding fade-ready" style="opacity: 1;">
+<div class="views-field views-field-field-product-afbeelding fade-ready">
   <div class="field-content">
-    <img src="/static/assets/images/products/{{category_animal.lower()}}/320/{{ products[0].imgsrc }}" alt="" />
+    <!-- TODO! this doesn't seem to pull a good image http://127.0.0.1:5000/cat/vitalcare-diet/renal-support -->
+    <img src="/static/assets/images/products/{{category_animal.lower()}}/600/{{ products[0].imgsrc }}" alt="" />
   </div>
 </div>
 

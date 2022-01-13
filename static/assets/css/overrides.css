@@ -140,9 +140,6 @@
 .page-taxonomy-term .view-productlijn-producten .view-content .views-row {
   float: right;
 }
-.node-type-product .main-spanner #group-foodinfo-node-product-default ul.resp-tabs-list {
-  display: none;
-}
 h2.resp-accordion {
   color: #fff;
   padding: 20px 10px 0 10px;
@@ -168,8 +165,9 @@ h2.resp-accordion {
 .node-type-product .header-interactive .view-header-producten .views-field-field-product-afbeelding {
   left: 50%;
   margin-right: 0;
-  margin-left: -600px;
-  width: 600px;
+  margin-left: -50%;
+  width: 50%;
+  max-width: 600px;
 }
 .node-type-product .header-interactive .view-header-producten .product-titel .views-field {
   padding-right: 0;
@@ -198,4 +196,24 @@ h2.resp-accordion {
 .node-type-product .main-spanner .group-subbox {
   background: #98c010 url(/static/assets/images/menu/samenstelling-bg.png) right center no-repeat; 
   background-size: 50% 100%;
+}
+.resp-tab-item {
+  cursor: pointer;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+
+@media (max-width: 1079px) {
+  #header .view-home-header video {
+      display: none;
+  }
 }
