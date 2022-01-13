@@ -217,3 +217,12 @@ h2.resp-accordion {
       display: none;
   }
 }
+
+.page-taxonomy-term .view-category-header .views-field-description-1 .field-content a.product-list {
+    background-image: url(/static/assets/images/menu/grid-small.png);
+    background-repeat: no-repeat;
+    padding-left: 15px !important;
+    padding-right: 34px !important;
+    background-size: 15px 15px;
+    background-position: right 12px center;
+}

@@ -15,9 +15,9 @@
 
 {% block feature %}
   {% if category_animal == 'dog' %}
-    {% include 'heros/products-dog.html' %}
+    {% include 'heros/products-dog.html' ignore missing %}
   {% elif category_animal == 'cat' %}
-    {% include 'heros/products-cat.html' %}
+    {% include 'heros/products-cat.html' ignore missing %}
   {% endif %}
 {% endblock %}
 

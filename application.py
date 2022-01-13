@@ -1,4 +1,5 @@
 import sqlite3
+import os
 from flask import Flask, redirect, render_template
 from werkzeug.exceptions import default_exceptions, HTTPException, InternalServerError
 
@@ -87,6 +88,7 @@ def our_products(animal):
     else:
       return redirect("/")  
 
+
 @app.route('/<animal>/<productline>')
 def productline(animal, productline):
     '''Show all products by product line'''
@@ -100,7 +102,7 @@ def productline(animal, productline):
                 added_food.append(food["name"])
                 products.append(food)
         print(products)
-        return render_template("category-products.html", products=products, category_animal=animal)
+        return render_template("category-products.html", products=products, category_animal=animal, os=os)
     else:
         return redirect(f"/our-products/{animal}")
 

@@ -1,10 +1,18 @@
-{% extends "layout-1col.html" %}
+{% extends "layout-categories.html" %}
 
 {% block title %}
 {{ products[0]['category_name'] }}
 {% endblock %}
 
 {% block hero %}
+{% endblock %}
+
+{% block feature %}
+
+  {% set featureinclude %}heros/{{category_animal.lower()}}-{{ products[0]['category_name'].lower().replace(' ', '-')
+            }}{% endset %}
+  {% include featureinclude + '.html' ignore missing %}
+
 {% endblock %}
 
 {% block main %}
@@ -57,7 +65,7 @@
               </div>
             </div>
             <div class="views-field views-field-field-subtitel">
-              <div class="field-content">{{ product.description }}</div>
+              <div class="field-content">{{ product.subtitle }}</div>
             </div>
           </div>
 
