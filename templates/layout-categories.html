@@ -2,7 +2,7 @@
 <html class="js" lang="he" dir="rtl">
 
 
-  {% set title_s %}{% block title %}{% endblock %}{% endset %}
+{% set title_s %}{% block title %}{% endblock %}{% endset %}
 {% include 'global/head.html' %}
 
 
@@ -13,47 +13,44 @@
   <div class="region-block header">
     <header id="header" class="fixed">
 
-  {% include 'global/header.html' %}
+      {% include 'global/header.html' %}
 
-  {% block feature %}{% endblock %}
-</header>
-</div>
+      {% block feature %}{% endblock %}
+    </header>
+  </div>
 
 
   <div class="page-spanner">
     <div class="page">
 
-      {% if self.hero() | trim %} 
+      {% if self.hero() | trim %}
       <div class="hero field field-name-field-headertekst field-type-text-long field-label-hidden">
-        <div class="field-items"><div class="field-item even">
-          {% block hero %}{% endblock %}
-          
-        </div></div></div>
-         {% endif %}
-      
+        <div class="field-items">
+          <div class="field-item even">
+            {% block hero %}{% endblock %}
+
+          </div>
+        </div>
+      </div>
+      {% endif %}
+
 
       <div class="region-block main-spanner">
         <section id="main" role="main" class="clearfix block-center">
-
-          
-
           <div class="main-content" id="main-content">
-
-
             <div class="region region-content">
               <div id="block-system-main" class="block block-system">
-
-
                 <div class="content">
-                    
-                  
-
-                      {% include 'global/alert.html' %}
-                      {% block main %}{% endblock %}
-                     
+                  <div id="taxonomy-term-136" class="taxonomy-term vocabulary-product-category">
+                    <div class="content">
+                      <div class="collapsible group-introlijn field-group-div speed-fast effect-none">
+                        {% include 'global/alert.html' %}
+                        {% block main %}{% endblock %}
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-              
             </div>
           </div>
         </section>
@@ -61,7 +58,7 @@
 
       <div class="second-main region-block">
         <section class="block-center">
-          
+
           {% block second %}{% endblock %}
 
         </section>

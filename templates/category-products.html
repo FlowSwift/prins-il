@@ -9,25 +9,49 @@
 
 {% block feature %}
 
-  {% set featureinclude %}heros/{{category_animal.lower()}}-{{ products[0]['category_name'].lower().replace(' ', '-')
-            }}{% endset %}
-  {% include featureinclude + '.html' ignore missing %}
+{% set featureinclude %}heros/{{category_animal.lower()}}-{{ products[0]['category_name'].lower().replace(' ', '-')
+}}{% endset %}
+{% include featureinclude + '.html' ignore missing %}
 
 {% endblock %}
 
 {% block main %}
 
-<h1>{{ products[0]['category_name'] }}</h1>
 
-<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere voluptatum voluptas officiis quod, ipsum facilis
-  amet quo reprehenderit obcaecati sapiente impedit dignissimos eos dolor! Exercitationem vitae labore atque maxime
-  sequi!
-  Odio recu
-  {% endblock %}
+<div class="collapsible group-introlijn field-group-div speed-fast effect-none">
+  <h3><span class="field-group-format-toggler"></span></h3>
+  <div class="field-group-format-wrapper" style="display: block;">
+
+    <div class="field field-name-field-productlijnomschrijving field-type-text-long field-label-hidden">
+      <div class="field-items">
+        <div class="field-item even">
+          <h2>{{ products[0]['category_name'] }}</h2>
+          <p>TODO category.description? </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="field field-name-field-product-afbeelding field-type-image field-label-hidden">
+      <div class="field-items">
+        <div class="field-item even">
+          TODO category.imgsrc? 
+          <img typeof="foaf:Image"
+            src="https://www.prinspetfoods.com/sites/default/files/styles/600x400/public/naturecare_Duo_0.png?itok=uqSNVlbn&amp;c=6a7dc92ff94d391dfd98ce4758e24b18"
+            alt=""></div>
+      </div>
+    </div>
+
+  </div>
+</div>
 
 
-  {% block second %}
-  {% if (products|length) > 0 %}
+
+
+{% endblock %}
+
+
+{% block second %}
+{% if (products|length) > 0 %}
 
 <div class="page-taxonomy-term">
   <div id="block-views-productlijn-producten-block" class="block block-views">
@@ -51,7 +75,8 @@
 
             <div class="views-field views-field-field-product-afbeelding">
               <div class="field-content"><a href="{{ url }}">
-                  <img src="/static/assets/images/products/{{category_animal.lower()}}/320/{{ product.imgsrc }}" alt="" />
+                  <img src="/static/assets/images/products/{{category_animal.lower()}}/320/{{ product.imgsrc }}"
+                    alt="" />
                 </a></div>
             </div>
 
