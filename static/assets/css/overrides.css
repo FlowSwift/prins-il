@@ -167,6 +167,7 @@ h2.resp-accordion {
   margin-right: 0;
   margin-left: -50%;
   width: 50%;
+  max-width: 600px;
 }
 .node-type-product .header-interactive .view-header-producten .product-titel .views-field {
   padding-right: 0;
