@@ -212,7 +212,7 @@ h2.resp-accordion {
   border: 0;
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 1079px) {
   #header .view-home-header video {
       display: none;
   }
