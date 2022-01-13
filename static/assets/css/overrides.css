@@ -226,3 +226,15 @@ h2.resp-accordion {
     background-size: 15px 15px;
     background-position: right 12px center;
 }
+.container {
+  max-width: 980px;
+  margin: 0 auto 20px;
+  position: relative;
+}
+.page-search h2 {
+  text-align: initial;
+  font-weight: 700;
+}
+.node-type-product .home-bg-image {
+  background-size:cover;opacity:0.7;
+}

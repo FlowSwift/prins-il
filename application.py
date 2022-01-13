@@ -4,7 +4,7 @@ from flask import Flask, redirect, render_template
 from werkzeug.exceptions import default_exceptions, HTTPException, InternalServerError
 
 # from flask_babel import Babel
-from helpers import apology, usd, session_get_int
+from helpers import apology, rng_hero_banner
 
 app = Flask(__name__)
 
@@ -23,7 +23,6 @@ def after_request(response):
     return response
 
 
-app.jinja_env.filters["usd"] = usd
 
 con = sqlite3.connect("prins.db")
 db = con.cursor()
@@ -124,7 +123,7 @@ def animal_product(animal, productline, product):
             if product == product_name:
                 products.append(food)
         print(products)
-        return render_template("product.html", products=products, category_animal=animal)
+        return render_template("product.html", products=products, category_animal=animal, bgimg=rng_hero_banner(animal))
     else:
         return redirect(f"/our-products/{animal}")
 

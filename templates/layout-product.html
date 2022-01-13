@@ -3,7 +3,7 @@
 {% set title_s %}{% block title %}{% endblock %}{% endset %}
 {% include 'global/head.html' %}
 <body
-  class="html front not-logged-in no-sidebars page-node page-node- page-node-23  node-type-product i18n-en eu-cookie-compliance-processed"
+  class="html front not-logged-in no-sidebars page-node page-node- page-node-23  node-type-product i18n-en"
   data-new-gr-c-s-check-loaded="14.1042.0" data-gr-ext-installed="">
 
   <div class="region-block header">
@@ -21,8 +21,9 @@
                   <div class="views-row views-row-1 views-row-odd views-row-first views-row-last">
                     <div class="views-field views-field-field-startafbeelding">
                       <div class="field-content">
-                        <div class="home-bg-image">
-                        </div>
+                        {% if self.bgimg() | trim %}
+                        {% block bgimg %}{% endblock %}
+                        {% endif %}
                       </div>
                     </div>
                     {% if self.hero() | trim %}
