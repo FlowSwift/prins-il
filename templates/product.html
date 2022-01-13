@@ -8,7 +8,7 @@
 
 <div class="product-titel views-fieldset" data-module="views_fieldsets">
   <div class="views-field views-field-name fade-ready"><span class="field-content"><a
-        href="https://www.prinspetfoods.com/dog/prins-fit-selection-dog">All
+        href="/{{category_animal}}/{{productline}}">All
         products</a></span></div>
   <div class="views-field views-field-field-productlijn fade-ready">
     <h3 class="field-content">{{ products[0]['category_name'] }}</h3>
@@ -36,8 +36,7 @@
 
 <div class="views-field views-field-field-product-afbeelding fade-ready">
   <div class="field-content">
-    <!-- TODO! this doesn't seem to pull a good image http://127.0.0.1:5000/cat/vitalcare-diet/renal-support -->
-    <img src="/static/assets/images/products/{{category_animal.lower()}}/600/{{ products[0].imgsrc }}" alt="" />
+    <img src="/static/assets/images/products/{{category_animal}}/600/{{ products[0].imgsrc }}" alt="" />
   </div>
 </div>
 

@@ -120,10 +120,10 @@ def animal_product(animal, productline, product):
         for food in food_info:
             product_name = food['name'].lower().replace(
                 ' & ', '-').replace(' ', '-')
-            if product == product_name:
+            if ((product == product_name) and (animal == food['animal'])):
                 products.append(food)
         print(products)
-        return render_template("product.html", products=products, category_animal=animal, bgimg=rng_hero_banner(animal))
+        return render_template("product.html", products=products, category_animal=animal, productline=productline, bgimg=rng_hero_banner(animal))
     else:
         return redirect(f"/our-products/{animal}")
 
