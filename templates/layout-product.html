@@ -175,7 +175,18 @@
                                 class="field field-name-field-table-mineralen field-type-tablefield field-label-hidden">
                                 <div class="field-items">
                                   <div class="field-item even">
-                                    {% include 'composition/fit-selection-chicken-rice.html' %}
+                                    <div class="row">
+                                      <div class="col-6">
+                                        {% include 'product-tabs/ingredients/' + include_path ignore missing %}
+
+                                      </div>
+                                      <div class="col-6">
+                                        {% include 'product-tabs/nutrition/' + include_path ignore missing %}
+
+                                      </div>
+                                    </div>
+
+
                                   </div>
                                 </div>
                               </div>
@@ -183,11 +194,11 @@
                             <div class="resp-tab-content resp-tab-content-active" 
                               aria-labelledby="tab_item-2" id="tab_item-2">
                               <div
-                                class="field field-name-field-table-mineralen field-type-tablefield field-label-hidden">
+                                class="field field-name-field-table-amount field-type-tablefield field-label-hidden">
                                 <div class="field-items">
                                   <div class="field-item even">
                                     <h2 class="resp-accordion sr-only">Amount per Day</h2>
-                                    amount per day
+                                    {% include 'product-tabs/amount/' + include_path ignore missing %}
 
                                   </div>
                                 </div>

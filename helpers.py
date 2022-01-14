@@ -24,3 +24,7 @@ def rng_hero_banner(animal_type):
       return random.choice(dogs)
     else:
         return None
+
+def get_include_path(animal, productline, product):
+    path = '-'.join([animal, productline, product])
+    return path + '.html'

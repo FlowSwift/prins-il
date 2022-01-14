@@ -4,7 +4,7 @@ from flask import Flask, redirect, render_template
 from werkzeug.exceptions import default_exceptions, HTTPException, InternalServerError
 
 # from flask_babel import Babel
-from helpers import apology, rng_hero_banner
+from helpers import apology, rng_hero_banner, get_include_path
 
 app = Flask(__name__)
 
@@ -116,6 +116,7 @@ def animal_product(animal, productline, product):
     '''Single product page'''
     # http://127.0.0.1:5000/dog/fit-selection/chicken-rice
     products = []
+    include_path = get_include_path(animal, productline, product)
     if len(food_info) > 0:
         for food in food_info:
             product_name = food['name'].lower().replace(
@@ -123,7 +124,7 @@ def animal_product(animal, productline, product):
             if ((product == product_name) and (animal == food['animal'])):
                 products.append(food)
         print(products)
-        return render_template("product.html", products=products, category_animal=animal, productline=productline, bgimg=rng_hero_banner(animal))
+        return render_template("product.html", products=products, category_animal=animal, productline=productline, bgimg=rng_hero_banner(animal), include_path=include_path)
     else:
         return redirect(f"/our-products/{animal}")
 
