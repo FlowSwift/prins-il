@@ -242,8 +242,10 @@ h2.resp-accordion {
   padding-right: 0;
   padding-left: 5px;
 }
+
 .row {
   display: flex;
+  flex-direction: column;
   margin-right: -15px;
   margin-left: -15px;
 }
@@ -254,4 +256,33 @@ h2.resp-accordion {
 }
 .field-name-field-table-amount table {
   width: 100%; 
+}
+.page-taxonomy-term .vocabulary-product-category .field-name-field-product-afbeelding .field-item.even{
+  padding: 40px 80px 0 80px;
+}
+@media (min-width: 768px) {
+  .row {
+    flex-direction: row;
+  }
+  .page-taxonomy-term .vocabulary-product-category .field-name-field-product-afbeelding .field-item.even{
+    padding-top: 0;
+  }
+}
+.page-taxonomy-term .vocabulary-product-category .field-name-field-product-afbeelding img {
+  max-width: 380px;
+}
+
+@media (max-width: 768px) {
+  .node-type-product .main-spanner #group-foodinfo-node-product-default ul.resp-tabs-list {
+    display: block;
+  }
+  .node-type-product .main-spanner #group-foodinfo-node-product-default ul.resp-tabs-list li {
+    font-size: 14px;
+  }
+  .node-type-product .main-spanner #group-foodinfo-node-product-default .resp-tab-content {
+    padding-top: 30px;
+  }
+}
+ .node-type-product .main-spanner #group-foodinfo-node-product-default .resp-tab-content .field.field-name-field-table-mineralen p {
+  font-size: 16px;
 }
