@@ -105,8 +105,8 @@ def productline(animal, productline):
             if food["name"] not in added_food and food["category_id"] == categories_info[category_name]["category_id"]:
                 added_food.append(food["name"])
                 products.append(food)
-        print(products)
-        return render_template("category-products.html", products=products, category_animal=animal, os=os)
+        print(categories_info[category_name])
+        return render_template("category-products.html", products=products, category=categories_info[category_name], category_animal=animal, os=os)
     else:
         return redirect(f"/our-products/{animal}")
 

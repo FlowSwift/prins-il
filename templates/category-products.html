@@ -26,7 +26,7 @@
       <div class="field-items">
         <div class="field-item even">
           <h2>{{ products[0]['category_name'] }}</h2>
-          <p>TODO category.description? </p>
+          <p>{{ category.category_info}}</p>
         </div>
       </div>
     </div>
@@ -36,7 +36,7 @@
         <div class="field-item even">
           TODO category.imgsrc? 
           <img typeof="foaf:Image"
-            src="https://www.prinspetfoods.com/sites/default/files/styles/600x400/public/naturecare_Duo_0.png?itok=uqSNVlbn&amp;c=6a7dc92ff94d391dfd98ce4758e24b18"
+            src="/static/assets/images/categories/{{category_animal.lower()}}/{{ category.category_imgsrc }}"
             alt=""></div>
       </div>
     </div>
