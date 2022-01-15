@@ -161,18 +161,20 @@ h2.resp-accordion {
 .field-name-field-samenstelling.field-type-text-long {
   clear: both;
 }
+@media (min-width: 980px) {
+  .node-type-product .header-interactive .view-header-producten .views-field-field-product-afbeelding {
+    left: 50%;
+    margin-right: 0;
+    margin-left: -50%;
+    width: 50%;
+    max-width: 600px;
+  }
+  .node-type-product .header-interactive .view-header-producten .product-titel .views-field {
+    padding-right: 0;
+    padding-left: 30%;
+  }
+}
 
-.node-type-product .header-interactive .view-header-producten .views-field-field-product-afbeelding {
-  left: 50%;
-  margin-right: 0;
-  margin-left: -50%;
-  width: 50%;
-  max-width: 600px;
-}
-.node-type-product .header-interactive .view-header-producten .product-titel .views-field {
-  padding-right: 0;
-  padding-left: 30%;
-}
 .node-type-product .header-interactive .view-header-producten .views-field-field-detailpagina-titel, .node-type-product .header-interactive .view-header-producten .views-field-title {
   text-align: right;
 }
@@ -285,4 +287,30 @@ h2.resp-accordion {
 }
  .node-type-product .main-spanner #group-foodinfo-node-product-default .resp-tab-content .field.field-name-field-table-mineralen p {
   font-size: 16px;
+}
+.page-taxonomy-term .view-productlijn-producten {
+  padding-top: 40px;
+}
+.productline-intro {
+  background-color: #eee;
+  padding-bottom: 60px;
+}
+/* 
+.node-type-product .main-spanner .node-product .content > .group-foodinfo > h2,
+.node-type-product .main-spanner #group-foodinfo-node-product-default ul.resp-tabs-list li,
+.node-type-product .main-spanner #group-foodinfo-node-product-default ul.resp-tabs-list {
+  background-color: #eee;
+} */
+#header nav .main-menu .menu li:first-child {
+  margin-left: 15px;
+}
+.node-type-product .main-spanner .field-name-body {
+  margin-top: 180px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+@media (min-width: 980px) {
+.node-type-product .main-spanner .field-name-body {
+  margin: 100px auto 60px;
+}
 }
