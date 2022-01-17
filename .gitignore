@@ -142,6 +142,7 @@ schema.txt
 dump.rdb
 prins - Copy.db
 prins.db-journal
-.gitignore
 final_inv - Copy.csv
 final_inv - Copy (2).csv
+final_inv - Copy (3).csv
+.gitignore
