@@ -2,7 +2,7 @@
 
 ## Development
 
-Enable virtual environment:
+Use Python 3.9.7 or later. Enable virtual environment:
 
 ```sh
 python3 -m venv venv
@@ -22,7 +22,6 @@ Visit http://127.0.0.1:5000/
 
 ## To do:
 
-- register domain
 - contact form (google form)
 - google custom search embed
 - dealer page

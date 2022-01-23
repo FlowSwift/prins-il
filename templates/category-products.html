@@ -9,8 +9,7 @@
 
 {% block feature %}
 
-{% set featureinclude %}heros/{{category_animal.lower()}}-{{ products[0]['category_name'].lower().replace(' ', '-')
-}}{% endset %}
+{% set featureinclude %}heros/{{category_animal.lower()}}-{{ products[0]['category_url_slug']}}{% endset %}
 {% include featureinclude + '.html' ignore missing %}
 
 {% endblock %}
@@ -65,9 +64,8 @@
         <div class="view-content">
           {% for product in products %}
 
-          {% set product_slug %}{{ product['name'].lower().replace(' & ', '-').replace(' ', '-') }}{% endset %}
-          {% set productline_url %}/{{category_animal.lower()}}/{{ product['category_name'].lower().replace(' ', '-')
-          }}{% endset %}
+          {% set product_slug %}{{ product['url_slug'] }}{% endset %}
+          {% set productline_url %}/{{category_animal.lower()}}/{{ category['category_url_slug']}}{% endset %}
           {% set url %}{{ productline_url }}/{{ product_slug }}{% endset %}
 
           <div class="views-row views-row-{{loop.index}} views-row-odd views-row-first fade-in">
