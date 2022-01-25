@@ -188,6 +188,11 @@ h2.resp-accordion {
   right: 0;
   transform: rotate(180deg);
 }
+@media (max-width: 1023px) {
+  .node-type-product .main-spanner .group-subbox .field-name-field-subafbeelding:before {
+    display: none;
+  }
+}
 .node-type-product .main-spanner .group-subbox .field {
   float: left;
   clear: none;

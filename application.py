@@ -4,7 +4,7 @@ from flask import Flask, redirect, render_template
 from werkzeug.exceptions import default_exceptions, HTTPException, InternalServerError
 
 # from flask_babel import Babel
-from helpers import apology, rng_hero_banner, get_include_path
+from helpers import apology, rng_hero_banner, get_include_path, get_food_image_path
 
 app = Flask(__name__)
 
@@ -114,11 +114,12 @@ def animal_product(animal, productline, product):
     # /dog/fit-selection/chicken-rice
     products = []
     include_path = get_include_path(animal, productline, product)
+    food_image_path = get_food_image_path(animal, productline, product)
     if len(food_info) > 0:
         for food in food_info:
             if ((product == food['url_slug']) and (animal == food['animal'])):
                 products.append(food)
-        return render_template("product.html", products=products, category_animal=animal, productline=productline, bgimg=rng_hero_banner(animal), include_path=include_path)
+        return render_template("product.html", products=products, category_animal=animal, productline=productline, bgimg=rng_hero_banner(animal), include_path=include_path, food_image_path=food_image_path)
     else:
         return redirect(f"/our-products/{animal}")
 
