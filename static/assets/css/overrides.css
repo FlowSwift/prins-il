@@ -319,3 +319,9 @@ h2.resp-accordion {
   margin: 100px auto 60px;
 }
 }
+
+@media (min-width: 768px) {
+  .page-layout-categories .views-field-nothing p {
+    padding-left: 30px;
+  }
+}
