@@ -325,3 +325,15 @@ h2.resp-accordion {
     padding-left: 30px;
   }
 }
+
+.page-taxonomy-term .vocabulary-product-category .field-name-field-opsomming-voordelen .field-item {
+  background-image: url(/static/assets/images/menu/samenstelling-list-item.png);
+  background-position: right;
+  padding: 17px 65px 17px 0;
+}
+.page-taxonomy-term .vocabulary-product-category .field-name-field-opsomming-voordelen .field-item {
+  border-bottom-color: #b6d7cd;
+}
+.bg-green {
+  background-color: #e3edea;
+}
