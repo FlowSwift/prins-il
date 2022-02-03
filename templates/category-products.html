@@ -9,7 +9,7 @@
 
 {% block feature %}
 
-{% set featureinclude %}heros/{{category_animal.lower()}}-{{ products[0]['category_url_slug']}}{% endset %}
+{% set featureinclude %}heros/{{category_animal.lower()}}-{{ category['category_url_slug']}}{% endset %}
 {% include featureinclude + '.html' ignore missing %}
 
 {% endblock %}
