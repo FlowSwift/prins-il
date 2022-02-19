@@ -61,13 +61,7 @@
                 
                 <div class="views-field views-field-nothing"> <span class="field-content">
                     <p></p>
-                    <ul>
-                      {% for bullet in category.bullets %}
-                        {% if bullet %}
-                        <li>{{ bullet }}</li>
-                        {% endif %}
-                      {% endfor %}
-                    </ul>
+                    {{category.category_description}}
                     <p></p>
                     <a href="{{ url }}">All products</a>
                   </span> </div>
