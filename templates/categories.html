@@ -1,32 +1,32 @@
 {% extends "layout-categories.html" %}
 
 {% block title %}
-  {% if category_animal == 'dog' %}
-    Dog Products
-  {% elif category_animal == 'cat' %}
-    Cat Products
-  {% else %}
-    Products
-  {% endif %}
+{% if category_animal == 'dog' %}
+Dog Products
+{% elif category_animal == 'cat' %}
+Cat Products
+{% else %}
+Products
+{% endif %}
 {% endblock %}
 
 {% block hero %}
 {% endblock %}
 
 {% block feature %}
-  {% if category_animal == 'dog' %}
-    {% include 'heros/products-dog.html' ignore missing %}
-  {% elif category_animal == 'cat' %}
-    {% include 'heros/products-cat.html' ignore missing %}
-  {% endif %}
+{% if category_animal == 'dog' %}
+{% include 'heros/products-dog.html' ignore missing %}
+{% elif category_animal == 'cat' %}
+{% include 'heros/products-cat.html' ignore missing %}
+{% endif %}
 {% endblock %}
 
 {% block main %}
 {% endblock %}
 
 
-  {% block second %}
-  {% if (categories|length) > 0 %}
+{% block second %}
+{% if (categories|length) > 0 %}
 
 
 <div class="page-taxonomy-term">
@@ -40,46 +40,41 @@
           <h1 class="sr-only">{{ title_s }}</h1>
         </div>
 
-
-
         <div class="view-content">
           {% for category in categories %}
 
-            {% set url %}/{{category_animal.lower()}}/{{ category['category_url_slug'] }}{% endset %}
+          {% set url %}/{{category_animal.lower()}}/{{ category['category_url_slug'] }}{% endset %}
 
-
-              <div class="views-row views-row-{{loop.index}} views-row-odd views-row-first">
-                <div class="views-field views-field-field-product-afbeelding">
-                  <div class="field-content">
-                    <a href="{{ url }}">
-                    <img src="/static/assets/images/categories/{{category_animal.lower()}}/{{ category.category_imgsrc }}" alt="" />
-                    </a>
-                  </div>
-                </div>
-                <h3 class="views-field views-field-name"> <span class="field-content"><a
-                      href="{{ url }}">{{ category.category_name }}</a></span> </h3>
-                
-                <div class="views-field views-field-nothing"> 
-                  <span class="field-content">
-                    <p>{{category.category_description}}</p>
-                    <p><a href="{{ url }}">All products</a></p>
-                  </span> 
-                </div>
+          <div class="views-row views-row-{{loop.index}} views-row-odd views-row-first">
+            <div class="views-field views-field-field-product-afbeelding">
+              <div class="field-content">
+                <a href="{{ url }}">
+                  <img src="/static/assets/images/categories/{{category_animal.lower()}}/{{ category.category_imgsrc }}"
+                    alt="" />
+                </a>
               </div>
+            </div>
+            <h3 class="views-field views-field-name"> <span class="field-content"><a href="{{ url }}">{{
+                  category.category_name }}</a></span> </h3>
 
-
+            <div class="views-field views-field-nothing">
+              <span class="field-content">
+                <p>{{category.category_description}}</p>
+                <p><a href="{{ url }}">כל המוצרים</a></p>
+              </span>
+            </div>
+          </div>
 
           {% endfor %}
 
         </div>
-
 
       </div>
     </div>
   </div>
   {% else %}
 
-  <p>{{ _('You do not have a product line with that ID') }}</p>
+  <p>You do not have a product line with that ID</p>
   {% endif %}
 </div>
 

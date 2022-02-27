@@ -1,11 +1,4 @@
-cs50
 Flask
 Flask-Session
-Flask-Babel
 requests
-redis
 uwsgi
-
-# Heroku
-gunicorn
-gevent

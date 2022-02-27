@@ -8,8 +8,7 @@
 
 <div class="product-titel views-fieldset" data-module="views_fieldsets">
   <div class="views-field views-field-name fade-ready"><span class="field-content"><a
-        href="/{{category_animal}}/{{productline}}">All
-        products</a></span></div>
+        href="/{{category_animal}}/{{productline}}">כל המוצרים</a></span></div>
   <div class="views-field views-field-field-productlijn fade-ready">
     <h3 class="field-content">{{ products[0]['category_name'] }}</h3>
   </div>
@@ -25,14 +24,12 @@
         {% for product in products %}
         {{ product.kg }}kg
         {{ " | " if not loop.last }}
-        {% endfor %}  
+        {% endfor %}
       </div>
     </div>
   </div>
 
 </div>
-
-
 
 <div class="views-field views-field-field-product-afbeelding fade-ready">
   <div class="field-content">
@@ -40,30 +37,19 @@
   </div>
 </div>
 
-
-
-
-
 {% endblock %}
 
 {% block main %}
-
-
 <h2 class="rtecenter">{{ products[0].desc_header }}</h2>
-<p class="rtecenter">{{ products[0].description }}
-
-</p>
-
+<p class="rtecenter">{{ products[0].description }}</p>
 {% endblock %}
-
 
 {% block second %}
 second block
 {% endblock %}
 
 {% block bgimg %}
-
-
-<div class="home-bg-image" style="background-image: url(/static/assets/images/products/{{category_animal}}/1900/{{bgimg}})">
+<div class="home-bg-image"
+  style="background-image: url(/static/assets/images/products/{{category_animal}}/1900/{{bgimg}})">
 </div>
 {% endblock %}
