@@ -9,7 +9,7 @@
 
 {% block feature %}
 
-{% set featureinclude %}heros/{{category_animal.lower()}}-{{ products[0]['category_url_slug']}}{% endset %}
+{% set featureinclude %}heros/{{category_animal.lower()}}-{{ category['category_url_slug']}}{% endset %}
 {% include featureinclude + '.html' ignore missing %}
 
 {% endblock %}
@@ -33,17 +33,38 @@
     <div class="field field-name-field-product-afbeelding field-type-image field-label-hidden">
       <div class="field-items">
         <div class="field-item even">
-          <img 
-            src="/static/assets/images/categories/{{category_animal.lower()}}/{{ category.category_imgsrc }}"
-            alt=""></div>
+          <img src="/static/assets/images/categories/{{category_animal.lower()}}/{{ category.category_imgsrc }}" alt="">
+        </div>
       </div>
     </div>
 
   </div>
 </div>
 
+{% endblock %}
 
 
+{% block bullets %}
+{% if (products|length) > 0 %}
+<div class="vocabulary-product-category ">
+  <h2 class="rtecenter">יתרונות</h2>
+  <div class="field field-name-field-opsomming-voordelen field-type-text field-label-hidden">
+    <div class="field-items">
+
+      {% for bullet in category.bullets %}
+      {% if bullet %}
+        {% if (loop.index % 2) == 0 %}
+        <div class="field-item even">{{ bullet }}</div>
+        {% else %}
+        <div class="field-item odd">{{ bullet }}</div>
+        {% endif %}
+      {% endif %}
+      {% endfor %}
+
+    </div>
+  </div>
+</div>
+{% endif %}
 
 {% endblock %}
 
