@@ -354,3 +354,21 @@ h2.resp-accordion {
 .text-center {  
   text-align: center;
 }
+
+#header .view-home-header .views-field-field-video-titel {
+  top: 50px;
+}
+#header .view-header-animal-choice {
+  top: 340px;
+}
+@media (max-width: 667px) {
+  .node-type-home #header .view-home-header .views-field-field-video-titel {
+    top: 50px;
+  }
+  #header .view-home-header .views-field-field-video-titel .field-content {
+    line-height: 78px;
+  }
+  .node-type-home #header .view-home-header .view-header-animal-choice {
+    top: 350px !important;
+  } 
+}
