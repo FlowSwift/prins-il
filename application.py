@@ -1,5 +1,6 @@
 import sqlite3
 import os
+import smtplib
 from flask import Flask, redirect, render_template
 from werkzeug.exceptions import default_exceptions, HTTPException, InternalServerError
 
