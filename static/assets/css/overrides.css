@@ -443,6 +443,40 @@ h2.resp-accordion {
     overflow: hidden;
   }
 }
-.woo {
-  color: #f10eee;
+.copyright {
+  height: auto;
+  min-height: auto;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+@media (max-width: 1023px) {
+  .copyright {
+    height: auto;
+    min-height: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .copyright .region-copyright {
+    width: auto;
+  }
+}
+.copyright #logo-footer {
+  margin-top: 0;
+}
+.copyright .social-icons {
+  display: none;
+}
+@media (max-width: 667px) {
+
+  .copyright .region-copyright {
+    width: 100%;
+  }
+  .copyright .region-copyright .menu li, .copyright .region-copyright .block .menu li {
+    text-align: center;
+  }
+  .copyright #logo-footer,
+  .copyright .block {
+    float: none;
+  }
+  
 }
