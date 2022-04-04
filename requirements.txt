@@ -2,4 +2,6 @@ Flask
 Flask-Session
 requests
 uwsgi
+# Heroku
 gunicorn
+gevent
