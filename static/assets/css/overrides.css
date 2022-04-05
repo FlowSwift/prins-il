@@ -480,3 +480,24 @@ h2.resp-accordion {
   }
   
 }
+
+
+/* form */
+.webform-client-form > div .form-item {
+  display: flex;
+}
+.webform-client-form > div .form-item label {
+  float: none;
+}
+.node-type-webform .webform-client-form > div .form-item label, .productlijn .webform-client-form > div .form-item label, .node-type-product .webform-client-form > div .form-item label {
+  text-align: left;
+  padding-right: 0;
+  padding-left: 10px;
+}
+.node-type-webform .webform-client-form > div .form-actions input {
+  margin-left: 0;
+}
+.webform-client-form > div .form-actions {
+  width: 100%;
+  text-align: center;
+}
