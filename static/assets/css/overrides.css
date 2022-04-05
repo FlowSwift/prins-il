@@ -222,7 +222,7 @@ h2.resp-accordion {
   cursor: pointer;
 }
 
-.sr-only {
+.sr-only, .honeypot {
   position: absolute;
   width: 1px;
   height: 1px;

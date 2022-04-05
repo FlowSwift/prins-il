@@ -14,17 +14,23 @@
 <div class="container">
 
   <div class="node-type-webform">
-    <form class="webform-client-form webform-client-form-8175" action="https://www.prinspetfoods.com/contact-us"
-      method="post" id="webform-client-form-8175" accept-charset="UTF-8">
-      <div>
-        <div class="form-item webform-component webform-component-markup webform-component--intro-tekst">
-          <h2 class="sr-only">Contact form</h2>
+    <div class="form-item webform-component webform-component-markup webform-component--intro-tekst">
+      <h2 class="sr-only">Contact form</h2>
 
-        </div>
+    </div>
+ 
+    {% if name %} 
+    <p>Thank you for contacting us, {{ name }}. Your message has been sent.</p>
+    
+    {% else %}
+    <form class="webform-client-form webform-client-form-8175" action="/contact-us"
+      method="post" accept-charset="UTF-8">
+      <div>
+       
         <div class="form-item webform-component webform-component-select webform-component--betreft">
           <label for="edit-submitted-betreft">Subject <span class="form-required"
               title="This field is required.">*</span></label>
-          <select required="required" id="edit-submitted-betreft" name="submitted[betreft]"
+          <select required="required" id="edit-submitted-betreft" name="submitted[subject]"
             class="form-select required">
             <option value="" selected="selected">- Select a subject -</option>
             <option value="Question about products">Question about products</option>
@@ -330,14 +336,17 @@
         <div class="honeypot">
           <div class="form-item form-type-textfield form-item-url">
             <label for="edit-url">Leave this field blank </label>
-            <input autocomplete="off" type="text" id="edit-url" name="url" value="" size="20" maxlength="128"
-              class="form-text">
+            <input autocomplete="off" type="text" id="edit-url" value="" size="20" maxlength="128"
+              class="form-text" name="url">
           </div>
         </div>
         <div class="form-actions"><input class="webform-submit button-primary form-submit" type="submit" name="op"
             value="Submit form"></div>
       </div>
     </form>
+
+    {% endif %}
+
   </div>
 </div>
 {% endblock %}

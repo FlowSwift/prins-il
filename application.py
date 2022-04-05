@@ -1,7 +1,7 @@
 import sqlite3
 import os
 import smtplib
-from flask import Flask, redirect, render_template
+from flask import Flask, redirect, request, render_template
 from werkzeug.exceptions import default_exceptions, HTTPException, InternalServerError
 
 # from flask_babel import Babel
@@ -64,10 +64,30 @@ def dealer_info():
     return render_template("dealer-info.html")
 
 
-@app.route("/contact-us")
+@app.route("/contact-us", methods=["GET", "POST"])
 def contact_us():
     """Contact us page"""
-    return render_template("contact-us.html")
+    if request.method == "POST":
+        name = request.form.get("submitted[name]")
+        email = request.form.get("submitted[email]")
+        subject = request.form.get("submitted[subject]")
+        message = request.form.get("submitted[message]")
+
+        # this is a fake input that catches bots
+        honeypot = request.form.get("url")
+        if (honeypot):
+            return apology("You're a bot; try again.", 403)
+        else:
+            print(name)
+            print(email)
+            print(subject)
+            print(message)
+            # server = smtplib.SMTP("smtp.gmail.com", 587)
+            # server.starttls()
+      
+            return render_template("contact-us.html", name=name)
+    else:
+        return render_template("contact-us.html")
 
 
 @app.route("/discover-prins")
