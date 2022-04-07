@@ -9,9 +9,9 @@ Search
 
 {% block hero %}
 <h1>Search</h1>
-<form class="search-form" action="https://www.prinspetfoods.com/search/node" method="post" id="search-form" accept-charset="UTF-8"><div><div class="container-inline form-wrapper" id="edit-basic"><div class="form-item form-type-textfield form-item-keys">
-  <label for="edit-keys">Enter your keywords </label>
- <input type="text" id="edit-keys" placeholder="Search products" name="keys" value="" size="40" maxlength="255" class="form-text">
+<form class="search-form" action="/search" method="get" id="search-form" accept-charset="UTF-8"><div><div class="container-inline form-wrapper" id="edit-basic"><div class="form-item form-type-textfield form-item-keys">
+  <label for="q">Enter your keywords </label>
+ <input type="text" id="q" placeholder="Search products" name="q" value="" size="40" maxlength="255" class="form-text">
 </div>
 <input type="submit" id="edit-submit" name="op" value="Search" class="form-submit"></div><input type="hidden" name="form_build_id" value="form-6GOtMGt2vS_KdJ1v3pIvUl_XdIpFdf7-P2hpWbiQHPw">
 <input type="hidden" name="form_id" value="search_form">
@@ -22,8 +22,9 @@ Search
 {% block main %}
 <div class="container">
 
-  results provided by <a href="https://programmablesearchengine.google.com/cse/all">custom google search</a> once we have a url?
-  
+  <script async src="https://cse.google.com/cse.js?cx=41c98eca19e542597"></script>
+  <div class="gcse-searchresults-only"></div>
+
 </div>
 {% endblock %}
 
