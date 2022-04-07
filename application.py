@@ -3,9 +3,8 @@ import os
 import smtplib
 from flask import Flask, redirect, request, render_template
 from werkzeug.exceptions import default_exceptions, HTTPException, InternalServerError
-
-# from flask_babel import Babel
 from helpers import apology, rng_hero_banner, get_include_path, get_food_image_path
+from urllib.parse import urlparse, urlunparse
 
 app = Flask(__name__)
 
@@ -15,6 +14,15 @@ app.config["TEMPLATES_AUTO_RELOAD"] = True
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
 
+
+@app.before_request
+def redirect_nonwww():
+    """Redirect non-www requests to www"""
+    urlparts = urlparse(request.url)
+    if urlparts.netloc == 'prins-israel.co.il':
+        urlparts_list = list(urlparts)
+        urlparts_list[1] = 'www.prins-israel.co.il'
+        return redirect(urlunparse(urlparts_list), code=301)
 
 @app.after_request
 def after_request(response):
