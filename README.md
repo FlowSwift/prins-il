@@ -22,6 +22,10 @@ flask run # bash
  
 Visit http://127.0.0.1:5000/
 
+## Server setting
+
+- Server run command: `gunicorn --worker-tmp-dir /dev/shm wsgi:app`
+
 ## To do:
 
 - contact form (google form)
