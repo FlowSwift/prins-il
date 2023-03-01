@@ -1,6 +1,6 @@
 # Prins - Israel
 
-[prins-israel.co.il](https://prins-israel.co.il/)
+[prins-israel.co.il](https://www.prins-israel.co.il/)
 
 ## Development
 
