@@ -473,6 +473,7 @@ h2.resp-accordion {
   }
   .copyright .region-copyright .menu li, .copyright .region-copyright .block .menu li {
     text-align: center;
+    padding: 0px;
   }
   .copyright #logo-footer,
   .copyright .block {
